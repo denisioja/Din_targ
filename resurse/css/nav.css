@@ -1,0 +1,65 @@
+#hamburger, #ch-menu {
+    display: none;
+}
+
+nav {
+    background-color: var(--culoare-deschisa);
+    --inaltime-meniu: 30px;
+    height: var(--inaltime-meniu);
+    --latime-buton: 150px;
+}
+
+.imag-incon{
+    display: none;
+}
+
+ul.meniu li div.imag-incon{ /* stilizare icons */
+    display: none; 
+}
+
+ul.meniu ul { /* ascundem submeniurile */
+    display: none;
+    padding: 0;
+}
+
+ul.meniu{ /* stilizare meniu */
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.meniu li { 
+    width:var(--latime-buton);
+    height:var(--inaltime-meniu);
+    border: 1px solid var(--culoare-background);   
+    box-sizing: border-box;
+    text-align: center;
+    font-weight: bold; 
+    line-height: var(--inaltime-meniu);
+    transition: all 1s linear;
+}
+
+ul.meniu li:hover{
+    background-attachment: var(--culoare-background);
+}
+
+ul.meniu li:hover ul{
+    display: block;
+    background-color: var(--culoare-deschisa);
+    position: relative; /* relativ la pozitia parintelui */
+    list-style-type: none;
+    left: -1px;
+}
+
+ul.meniu li:hover>a, ul.meniu li:hover>div{ 
+    color: white;
+}
+
+ul.meniu a, ul.meniu div{
+    color: black;
+    text-decoration: none;
+    transition: all 1s linear;
+    display: block;
+    height: 100%;
+    cursor: pointer;    
+}

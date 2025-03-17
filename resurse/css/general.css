@@ -1,0 +1,210 @@
+/* p{ stilizare paragraf
+    /* color: aqua; */
+/* border: 2px solid blue; */
+/* }  */
+
+html {
+    /* doar pentru html */
+    font-size: 18px;
+}
+
+body {
+    --spatiere-pagina: 80px;
+    /* variabila */
+    --culoare-background: purple;
+    --culoare-deschisa: pink;
+}
+
+h2 {
+    font-size: 1.6rem;
+    /* 1.4 * cat e in html, rem = root em */
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+#grid-pagina {
+    display: grid;
+    grid-template-areas: "welcome welcome welcome"
+        "promotii promotii anunturi"
+        "fig1 produse produse"
+        "fig2 produse produse"
+        "fig3 produse produse"
+        "orar orar orar"
+        "index-intrebari index-intrebari index-intrebari";
+}
+
+#grid-pagina>* {
+    /* > * inseamna toate elementele child din grid */
+    outline: 1px solid navy;
+    padding: 7px;
+    /* margine */
+}
+
+#grid-pagina>figure {
+    /* este doar pentru fig care sunt un copil al gridului */
+    margin: 0;
+}
+
+#grid-pagina>img {
+    /* doar pentru img */
+    width: 100%;
+    max-width: 300px;
+}
+
+main {
+    /* doar pentru main */
+    padding-left: var(--spatiere-pagina);
+    /* folosim variabila */
+    padding-right: var(--spatiere-pagina);
+}
+
+#welcome {
+    grid-area: welcome;
+}
+
+#promotii {
+    grid-area: promotii;
+}
+
+#anunturi {
+    grid-area: anunturi;
+}
+
+#orar {
+    grid-area: orar;
+}
+
+/* de ce sunt asa de multe fig-uri? */
+#fig1 {
+    grid-area: fig1;
+}
+
+#fig2 {
+    grid-area: fig2;
+}
+
+#fig3 {
+    grid-area: fig3;
+}
+
+#produse {
+    grid-area: produse;
+}
+
+#intrebari {
+    grid-area: index-intrebari;
+}
+
+figcaption {
+    text-align: center;
+}
+
+/* ordinea e importanta pentru ca unul il poate suprascrie pe altul */
+@media screen and (max-width: 1200px) {
+
+    /*Media querry, ecran mediu*/
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        --spatiere-pagina: 50px;
+    }
+
+    #grid-pagina {
+        grid-template-rows: 1fr 1fr;
+        /* coloane de dimensiuni egale sau putem sa scriem repeat(2, 1fr) */
+        grid-template-areas: "welcome welcome"
+            "promotii promotii" "anunturi anunturi"
+            "fig1 produse"
+            "fig2 produse"
+            "fig3 produse"
+            "orar orar"
+            "index-intrebari index-intrebari";
+    }
+}
+
+#link-top {
+    position: fixed;
+    bottom: 0.3em;
+    opacity: 0.5;
+    left: 0.3em;
+    width: 3rem;
+    box-sizing: border-box;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    border: 5px solid grey;
+    border-top-color: red;
+    border-radius: 50%;
+    background: rgb(220, 220, 220);
+}
+
+#link-top:hover {
+    opacity: 1;
+}
+
+#triunghi {
+    height: 0px;
+    width: 0;
+    display: inline-block;
+    border-bottom: 1.5rem solid grey;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    vertical-align: top;
+    transform: translateY(30%);
+}
+
+h1 { /* font smecheros */
+    font-family: "Goudy Bookletter 1911", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container-iframe{ /*. inseamna clasa */
+    width: 60%;
+    min-width: 200px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: row;
+}
+
+.container-iframe>iframe{
+    width: 100%;
+}
+
+.taburi-iframe{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.taburi-iframe a{
+    width: 100px;
+    height: 50px;
+    display: block;
+    border: 1px solid var(--culoare-background);
+    text-align: center;
+    font-weight: bold;
+    background-color: var(--culoare-deschisa);
+}
+
+@media screen and (max-width: 800px) {
+
+    /* mic, daca e mai mic de 800px, nu ii da prioritate mai mare doar face codul vizibil pentru pagini sub 800px */
+    #grid-pagina {
+        display: block;
+        /* display block, elementele sunt una sub alta */
+    }
+
+    html {
+        font-size: 10px;
+    }
+
+    body {
+        --spatiere-pagina: 20px;
+    }
+
+}

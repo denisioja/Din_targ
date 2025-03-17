@@ -1,0 +1,435 @@
+<!DOCTYPE html> <!--tipul documentului -->
+<html lang="ro"> <!--limba documentului -->
+
+<head> <!--capul documentului -->
+    <title>Din targ</title>
+    <meta charset="UTF-8"><!-- codificarea în memorie a caracterelor-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- va fi explicat când ajungem la CSS -->
+    <meta name="keywords"
+        content="tradiție, artizanal, mestesug, suvenir, românesc, ceramica, muzica, bucate, folclor, decoratiuni, vestimentatie, sculptură, artă, original, autentic, lucrat manual, materiale naturale, personalizat, cadou">
+    <!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
+    <meta name="description" content="Magazin artinzanal.">
+    <!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+    <meta name="author" content="Denis Ioja"> <!-- autorul/autoarea paginii-->
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="./resurse/imagini/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./resurse/imagini/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./resurse/imagini/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./resurse/imagini/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+    <link rel="manifest" href="./resurse/imagini/favicon/site.webmanifest" />
+    <!--link către fișierul CSS -->
+    <link rel="stylesheet" type="text/css" href="./resurse/css/general.css">
+
+    <!-- link către fișierul CSS pentru meniu -->
+    <link rel="stylesheet" type="text/css" href="./resurse/css/nav.css">
+    <link rel="stylesheet" type="text/css" href="./resurse/css/nav1000.css" media="screen and (min-width: 1000px)">
+
+    <!-- link către fonturi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+
+    <!-- link către fonturi de text-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
+
+
+    <!-- CSS -->
+    <style>
+        /* tagurile la care vrem sa se aplice, setam stilul pentru text, functioneaza in cascada, ultimele lucruri scrie le suprascriu pe cele de mai sus */
+        /* p{  
+                color: green;
+                font-style: italic;
+            }
+
+            p{
+                color : blueviolet;
+            }*/
+    </style>
+
+</head>
+
+<body> <!--corpul documentului -->
+    <header> <!--antetul documentului -->
+        <h1 style="color : rgb(201, 223, 172)">Din targ</h1> <!--titlul paginii, style ii seteaza culoarea -->
+        <nav> <!--navigare-->
+            <label id="hamburger" for="ch-menu">
+                <!--label pentru hamburger, for-ul ii seteaza id-ul -->
+                <img src="resurse/imagini/Hamburger_icon_alb.png" alt="menu">
+            </label> <!--label pentru hamburger, for-ul ii seteaza id-ul -->
+            <input id="ch-menu" type="checkbox"> <!--checkbox-ul pentru meniu -->
+            <!-- ol - ordered list -->
+            <ul class="meniu"> <!--listă neordonată -->
+                <li> <!--list item-->
+                    <a href="#acasa">Acasa</a>
+                    <!--link către secțiunea 1, a - anchor, e necesar pentru a crea hyperlink -->
+                    <ul>
+                        <li><a href="#welcome">Bine ati venit</a></li>
+                        <li><a href="#promotii">Promotii</a></li>
+                        <li><a href="#anunturi">Anunturi</a></li>
+                        <li><a href="#orar">Orar</a></li>
+                        <li><a href="#intrebari">Intrebari</a></li>
+                        <li><a href="#confectionare">Confectionare</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Produse</a>
+                    <ul>
+                        <li>Vestimantare</li>
+                        <li>Decorative</li>
+                        <li>Instrumente muzicale</li>
+                        <li>Suveniruri/Cadouri</li>
+                        <li>Alimente</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Despre</a>
+                    <ul>
+                        <li>Prezentare</li>
+                        <li>Istoric</li>
+                        <li>Motivatie</li>
+                        <li>Galerie</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+                <li>
+                    <a href="#">Cos cumparaturi</a>
+                </li>
+                <li>
+                    <a href="#">Pagina logare</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main> <!--conținutul principal al documentului -->
+        <div id="grid-pagina">
+            <section id="welcome"> <!--sectiunea documentului-->
+                <h2>Bine ati venit</h2>
+                <p>Bine ati venit pe site-ul nostru
+                    <b>artizanal</b> <q>Din targ</q>, unde <b>tradiția</b> și
+                    <b>mestesugul</b> se unesc pentru a crea <b>suveniruri românești autentice</b>. De la
+                    <b>ceramica</b> la
+                    <b>sculptură</b>, de la <b>muzica</b> la <b>bucate</b> și <b>folclor</b>, oferim o gamă variată de
+                    produse <b>originale</b>, lucrate <b>manual</b> și <b>personalizate</b>, utilizând numai
+                    <b>materiale naturale</b> de cea mai bună <i>calitate</i>.
+                    Aici veți găsi o <i>gamă largă</i> de produse, inclusiv <b>decoratiuni</b>, <b>vestimentatie</b> și
+                    multe alte produse de <b>artă</b>, fiecare lucrată cu migala și atenție la detalii. Indiferent dacă
+                    căutați un <b>cadou</b> special sau un <b>suvenir autentic</b> care să vă amintească de vacanța în
+                    România, suntem siguri că veți găsi ceva potrivit pe site-ul nostru.
+                    Așadar, descoperiți bogăția și frumusețea culturii noastre prin intermediul <ins>produselor</ins>
+                    <ins>noastre</ins> <b>artizanale</b> și savurați adevărata valoare a lucrurilor făcute
+                    <b>manual</b>,
+                    care îmbină <b>tradiția</b> și inovația într-un mod <i>unic</i> și <i>deosebit</i>.
+                </p>
+            </section>
+            <section id="promotii">
+                <h3>Promotii</h3>
+                <!-- p>lorem ==> lorem ipsum  -->
+                <ul>
+                    <li>
+                        <h4>Masti</h4>
+                        <figure> <!--Etapa 1, task 8-->
+                            <picture>
+                                <source media="(max-width: 768px)" srcset="./resurse/imagini/masca2_mica.jpg">
+                                <source media="(min-width: 769px)  and (max-width: 1023px)"
+                                    srcset="./resurse/imagini/masca2_medie.jpg">
+                                <source media="(min-width: 1024px)" srcset="./resurse/imagini/masca2.jpg">
+
+                                <img src="./resurse/imagini/masca2.jpg" alt="Masti" />
+                                <!--in caz ca niciuna din pozele de mai sus nu e gasita, o vom folosi pe asta-->
+                            </picture>
+                            <figcaption>Masti <b>traditionale</b> romanesti la super pret!</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <h4>Produs cu reducere</h4>
+                        <p>Preț inițial: 100 lei</p>
+                        <p>Reducere: 20%</p>
+                        <p>Preț redus:
+                            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mi>Preț Redus</mi>
+                                <mo>=</mo>
+                                <mi>Preț Inițial</mi>
+                                <mo>-</mo>
+                                <mfenced>
+                                    <mfrac>
+                                        <mi>Procent Reducere</mi>
+                                        <mn>100</mn>
+                                    </mfrac>
+                                    <mo>×</mo>
+                                    <mi>Preț Inițial</mi>
+                                </mfenced>
+                            </math>
+                        </p>
+                    </li>
+
+                    <li>
+                        <h4>Produs2</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit laudantium deleniti quisquam
+                            qui doloremque itaque, tenetur quis. Libero itaque aspernatur voluptates voluptatum autem,
+                            amet minima! Quia nemo vel praesentium laboriosam.</p>
+                    </li>
+
+                    <li>
+                        <h4>Produs3</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit laudantium deleniti quisquam
+                            qui doloremque itaque, tenetur quis. Libero itaque aspernatur voluptates voluptatum autem,
+                            amet minima! Quia nemo vel praesentium laboriosam.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="anunturi">
+                <h2>Anunturi</h2>
+                <p>Aici ai ultimele noutati si evenimente din lumea <b>mestesugarilor</b>! In aceasta sectiune, te tinem
+                    la
+                    curent cu cele mai recente produse, promotii si activitati organizate de noi. Fii primul care afla
+                    despre lansarile de produse, expozitiile de arta si targurile traditionale la care participam. Vino
+                    sa ne vizitezi si sa te bucuri de o experienta autentica!</p>
+                <details><!--task 12, etapa 1-->
+                    <summary>Evenimente viitoare</summary>
+                    <p>Expozitie de ceramica traditionala - 15 iulie 2025</p>
+                </details>
+                <details>
+                    <summary>Produse noi</summary>
+                    <ul>
+                        <li>Masti traditionale romanesti</li>
+                        <li>Ie traditionala romaneasca</li>
+                        <li>Ceramica pictata manual</li>
+                    </ul>
+                </details>
+            </section>
+
+            <section id="orar">
+                <h2>Orar</h2>
+                <p>Descopera orarul nostru de functionare si vino sa ne vizitezi in magazinul nostru! Te asteptam cu
+                    drag sa descoperi <ins>produsele noastre</ins> <b>traditionale</b> si sa te bucuri de o experienta
+                    plina
+                    de <i>culoare</i> si <i>creativitate</i> !</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ziua</th>
+                            <th>Ora</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Luni</td>
+                            <td>9:00 - 18:00</td>
+                        </tr>
+                        <tr>
+                            <td>Marți</td>
+                            <td>9:00 - 18:00</td>
+                        </tr>
+                        <tr>
+                            <td>Miercuri</td>
+                            <td>9:00 - 18:00</td>
+                        </tr>
+                        <tr>
+                            <td>Joi</td>
+                            <td>9:00 - 18:00</td>
+                        </tr>
+                        <tr>
+                            <td>Vineri</td>
+                            <td>9:00 - 18:00</td>
+                        </tr>
+                        <tr>
+                            <td>Sâmbătă</td>
+                            <td>9:00 - 14:00</td>
+                        </tr>
+                        <tr>
+                            <td>Duminică</td>
+                            <td>Închis</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </section>
+
+            <section id="intrebari">
+                <h2>Intrebari frecvente</h2>
+                <ol>
+                    <li>
+                        <details>
+                            <summary> Care este termenul de livrare al produselor?</summary>
+                            <p>Termenul de livrare al produselor este de 2-3 zile lucratoare de la data plasarii
+                                comenzii.
+                                Livrarea se face prin curier rapid, iar costul transportului este de 15 lei pentru
+                                comenzile sub 200 lei si gratuit pentru comenzile de peste 200 lei.</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Care sunt modalitatile de plata acceptate?</summary>
+                            <p>Puteti plati produsele comandate online cu cardul sau ramburs la livrare. De asemenea,
+                                puteti
+                                plati in numerar sau cu cardul la magazinul nostru.</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Pot returna produsele achizitionate?</summary>
+                            <p>Da, puteti returna produsele achizitionate in termen de 14 zile de la primirea lor, fara
+                                a fi
+                                nevoie de vreo justificare. Costul returului este suportat de client.</p>
+
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Cum pot contacta echipa <q>Din targ?</q></summary>
+                            <p>
+                                Pentru orice intrebare sau nelamurire, va rugam sa ne contactati la adresa de email din
+                                josul paginii.
+                            </p>
+                        </details>
+
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Ce se intampla daca produsul primit este defect?</summary>
+                            <p> In cazul in care produsul primit este defect, va rugam sa ne contactati imediat pentru a
+                                putea
+                                remedia situatia. Puteti opta pentru inlocuirea produsului sau returnarea banilor.</p>
+                        </details>
+                    </li>
+                </ol>
+            </section>
+
+            <section id="produse">
+                <h2>Produse</h2>
+                <p>Descopera gama noastra variata de produse <b>traditionale</b> si <b>autentice</b>! De la
+                    <b>vestimentatie</b> la <b>decoratiuni</b>, de la <b>instrumente muzicale</b> la <b>suveniruri</b>
+                    si
+                    <b>cadouri</b>, oferim o selectie vasta de produse <b>originale</b>, lucrate <b>manual</b> si
+                    <b>personalizate</b>, utilizand numai <b>materiale naturale</b> de cea mai buna <i>calitate</i>.
+                    Indiferent daca cauti un <b>cadou</b> special sau un <b>suvenir autentic</b> care sa iti aminteasca
+                    de
+                    vacanta in <b>Romania</b>, suntem siguri ca vei gasi ceva potrivit pe site-ul nostru.
+                </p>
+                <ul>
+                    <section>
+                        <h3>Masti</h3>
+                        <h3>Ie</h3>
+                        <h3>Ceramica</h3>
+                    </section>
+            </section>
+
+            <figure id="fig1" class="fg-img">
+                <img src="./resurse/imagini/caval_mic1.png" alt="caval">
+                <figcaption>Caval</figcaption>
+            </figure>
+
+            <figure id="fig2" class="fg-img">
+                <img src="./resurse/imagini/ceramica_mic1.jpg" alt="ceramica">
+                <figcaption>Ceramica</figcaption>
+            </figure>
+
+            <figure id="fig3" class="fg-img">
+                <img src="./resurse/imagini/ie_mic1.jpg" alt="ia">
+                <figcaption>Ie</figcaption>
+            </figure>
+
+        </div>
+
+        <section id="confectionare">
+            <h2>Confectionare</h2>
+            <p>Descopera secretele <b>mestesugarilor</b>! In aceasta sectiune, te invitam sa urmaresti clipuri video
+                captivante care iti dezvaluie procesul de creatie al <ins>produselor noastre</ins> <b>traditionale</b>.
+                Vei fi
+                martorul transformarii materialelor brute in obiecte unicat, purtand amprenta autenticitatii
+                <b>romanesti</b>.
+            </p>
+
+            <!-- iframe, etapa 1, task 11, c -->
+            <div class="container-iframe"> <!--div este un tag de grupare-->
+                <div class="taburi-iframe">
+                    <a href="https://www.youtube.com/embed/Hyhkkk97HwE?si=sQGR2pDHNI3h8SW5" target="ifr-video">Caval</a>
+                    <a href="https://www.youtube.com/embed/kpB2memLGHA?si=ejYK1BRSjZY7UtGq" target="ifr-video">Masti
+                        traditionale</a>
+                    <a href="https://www.youtube.com/embed/C9INChbheIs?si=eQxT7VeMsbK_Kray" target="ifr-video">Ie
+                        traditional romaneasca</a>
+                </div>
+
+                <iframe name="ifr-video" width="560" height="315"
+                    src="https://www.youtube.com/embed/Hyhkkk97HwE?si=sQGR2pDHNI3h8SW5" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+
+        </section>
+
+        <section>
+            <h2>Linkuri utile</h2>
+            <!--link extern, etapa 1, task 11, a-->
+            <a href="https://iarmaroc.com" target="_blank">Shoutout prietenilor nostrii de la IARMAROC.com</a>
+            <br>
+            <!--link the tip download, etapa 1, task 11, d-->
+
+            <section>
+                <h2>Harta Mestesuguri</h2>
+                <p>Vizualizați harta noastra:</p>
+                <embed src="./resurse/pdf/Mestesuguri.pdf" type="application/pdf" width="800" height="600">
+                <p><a href="./resurse/pdf/Mestesuguri.pdf" download="./resurse/pdf/Mestesuguri.pdf">Descarcă Harta
+                        PDF</a></p>
+            </section>
+
+        </section>
+
+    </main>
+
+    <footer> <!--subsolul documentului -->
+        <section>
+            <h3>Contact</h3>
+            <a href="tel:+40732815694">Telefon</a>
+            <br>
+
+            <img src="./resurse/imagini/harta.png" alt="Harta unde ne gasesti" usemap="#harta-ro">
+            <a href="https://www.google.com/maps/place/Facultatea+de+Matematic%C4%83+%C8%99i+Informatic%C4%83/@44.4355393,26.0970118,17z/data=!3m1!4b1!4m6!3m5!1s0x40b1ff472f47f047:0x493984726f0235f9!8m2!3d44.4355355!4d26.0995867!16s%2Fg%2F1td63tdh?authuser=0&entry=ttu&g_ep=EgoyMDI1MDMwOC4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank">Adresa maps</a>
+
+            <map name="harta-ro">
+                <area shape="rect" coords="10, 10, 100, 100" href="bucuresti.html" alt="București">
+                <area shape="circle" coords="200, 200, 50" href="cluj.html" alt="Cluj-Napoca">
+                <area shape="poly" coords="300, 300, 350, 350, 250, 350" href="iasi.html" alt="Iași">
+                <area shape="rect" coords="400, 400, 500, 500"
+                    href="https://www.google.com/maps/place/Facultatea+de+Matematic%C4%83+%C8%99i+Informatic%C4%83/@44.4355393,26.0970118,17z/data=!3m1!4b1!4m6!3m5!1s0x40b1ff472f47f047:0x493984726f0235f9!8m2!3d44.4355355!4d26.0995867!16s%2Fg%2F1td63tdh?authuser=0&entry=ttu&g_ep=EgoyMDI1MDMwOC4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank" alt="Adresa maps">
+            </map>
+
+            <section>
+                <h2>Locația pe hartă</h2>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.884114398441!2d26.097011775701!3d44.435539301482414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFacultatea%20de%20Matematic%C4%83%20%C8%99i%20Informatic%C4%83!5e0!3m2!1sro!2sro!4v1742225646161!5m2!1sro!2sro"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </section>
+            
+            <br>
+            <a href="mailto:DinTarg@gmail.com">Mail Din Targ</a>
+            <br>
+            <a href="https://api.whatsapp.com/send?phone=40732815694">Trimite-ne un mesaj pe Whatsapp</a>
+            <br>
+            <p><small>Copyright &copy; <time datetime="2025-03-04">4 Martie 2025</time></small></p>
+        </section>
+
+
+
+
+
+
+
+        <!--link către începutul paginii, # se refera la pagina curenta si e suficient ca sa ne intoarecem la inceputul paginii -->
+        <a href="#" title="mergi sus" id="link-top">
+            <div id="triunghi"></div>
+        </a> <!--etapa 1, task 11, b -->
+
+    </footer>
+</body>
+
+</html>
