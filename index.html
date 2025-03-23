@@ -18,10 +18,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./resurse/imagini/favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="MyWebSite" />
     <link rel="manifest" href="./resurse/imagini/favicon/site.webmanifest" />
-    <!--link către fișierul CSS -->
-    <link rel="stylesheet" type="text/css" href="./resurse/css/general.css">
 
-    <!-- link către fișierul CSS pentru meniu -->
+    <!-- First load the reset -->
+    <link rel="stylesheet" type="text/css" href="./resurse/css/reset.css">
+
+    <!-- Then load your own styles -->
+    <link rel="stylesheet" type="text/css" href="./resurse/css/general.css">
     <link rel="stylesheet" type="text/css" href="./resurse/css/nav.css">
     <link rel="stylesheet" type="text/css" href="./resurse/css/nav1000.css" media="screen and (min-width: 1000px)">
 
@@ -32,7 +34,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
-
 
     <!-- CSS -->
     <style>
@@ -78,7 +79,7 @@
                         <li>Vestimantare</li>
                         <li>Decorative</li>
                         <li>Instrumente muzicale</li>
-                        <li>Suveniruri/Cadouri</li>
+                        <li>Suveniruri</li>
                         <li>Alimente</li>
                     </ul>
                 </li>
@@ -130,25 +131,10 @@
                 <!-- p>lorem ==> lorem ipsum  -->
                 <ul>
                     <li>
-                        <h4>Masti</h4>
-                        <figure> <!--Etapa 1, task 8-->
-                            <picture>
-                                <source media="(max-width: 768px)" srcset="./resurse/imagini/masca2_mica.jpg">
-                                <source media="(min-width: 769px)  and (max-width: 1023px)"
-                                    srcset="./resurse/imagini/masca2_medie.jpg">
-                                <source media="(min-width: 1024px)" srcset="./resurse/imagini/masca2.jpg">
-
-                                <img src="./resurse/imagini/masca2.jpg" alt="Masti" />
-                                <!--in caz ca niciuna din pozele de mai sus nu e gasita, o vom folosi pe asta-->
-                            </picture>
-                            <figcaption>Masti <b>traditionale</b> romanesti la super pret!</figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <h4>Produs cu reducere</h4>
-                        <p>Preț inițial: 100 lei</p>
+                        <h4>Reducere pentru toate produsele selectate!</h4>
                         <p>Reducere: 20%</p>
-                        <p>Preț redus:
+                        <p>Prețuri inițiale: 100 lei</p>
+                        <p>
                             <math xmlns="http://www.w3.org/1998/Math/MathML">
                                 <mi>Preț Redus</mi>
                                 <mo>=</mo>
@@ -167,18 +153,32 @@
                     </li>
 
                     <li>
-                        <h4>Produs2</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit laudantium deleniti quisquam
-                            qui doloremque itaque, tenetur quis. Libero itaque aspernatur voluptates voluptatum autem,
-                            amet minima! Quia nemo vel praesentium laboriosam.</p>
+                        <h4>Masti</h4>
+                        <figure> <!--Etapa 1, task 8-->
+                            <picture>
+                                <source media="(max-width: 768px)" srcset="./resurse/imagini/masca2_mica.jpg">
+                                <source media="(min-width: 769px)  and (max-width: 1023px)"
+                                    srcset="./resurse/imagini/masca2_medie.jpg">
+                                <source media="(min-width: 1024px)" srcset="./resurse/imagini/masca2.jpg">
+
+                                <img src="./resurse/imagini/masca2.jpg" alt="Masti" />
+                                <!--in caz ca niciuna din pozele de mai sus nu e gasita, o vom folosi pe asta-->
+                            </picture>
+                            <figcaption>Masti <b>traditionale</b> romanesti la super pret!</figcaption>
+                        </figure>
                     </li>
 
                     <li>
-                        <h4>Produs3</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit laudantium deleniti quisquam
-                            qui doloremque itaque, tenetur quis. Libero itaque aspernatur voluptates voluptatum autem,
-                            amet minima! Quia nemo vel praesentium laboriosam.</p>
+                        <h4>Caval</h4>
+                        <img src="./resurse/imagini/caval_mic.jpg" alt="Caval" />
+
                     </li>
+
+                    <li>
+                        <h4>Caval</h4>
+                        <img src="./resurse/imagini/ceramica_mic.jpg" alt="Ceramica" />
+                    </li>
+
                 </ul>
             </section>
 
@@ -209,44 +209,71 @@
                     drag sa descoperi <ins>produsele noastre</ins> <b>traditionale</b> si sa te bucuri de o experienta
                     plina
                     de <i>culoare</i> si <i>creativitate</i> !</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Ziua</th>
-                            <th>Ora</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Luni</td>
-                            <td>9:00 - 18:00</td>
-                        </tr>
-                        <tr>
-                            <td>Marți</td>
-                            <td>9:00 - 18:00</td>
-                        </tr>
-                        <tr>
-                            <td>Miercuri</td>
-                            <td>9:00 - 18:00</td>
-                        </tr>
-                        <tr>
-                            <td>Joi</td>
-                            <td>9:00 - 18:00</td>
-                        </tr>
-                        <tr>
-                            <td>Vineri</td>
-                            <td>9:00 - 18:00</td>
-                        </tr>
-                        <tr>
-                            <td>Sâmbătă</td>
-                            <td>9:00 - 14:00</td>
-                        </tr>
-                        <tr>
-                            <td>Duminică</td>
-                            <td>Închis</td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <div class="table-container">
+                        <table>
+                            <caption>Program de lucru</caption>
+                            <thead>
+                                <tr>
+                                    <th>Perioadă</th>
+                                    <th>Zi</th>
+                                    <th>Interval dimineata</th>
+                                    <th>Pauza de masa</th>
+                                    <th>Interval seară</th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                <tr>
+                                    <td rowspan="5">Zile<br />Lucrătoare</td> <!-- rowspan = merge pe verticala -->
+                                    <td>Luni</td>
+                                    <td>10-12</td>
+                                    <td>12-14</td>
+                                    <td>14-20</td>
+                                </tr>
+                                <tr>
+                                    <td>Marti</td>
+                                    <td>9-12</td>
+                                    <td>12-14</td>
+                                    <td>14-21</td>
+                                </tr>
+                                <tr>
+                                    <td>Miercuri</td>
+                                    <td>9-11</td>
+                                    <td>11-13</td>
+                                    <td>14-21</td>
+                                </tr>
+                                <tr>
+                                    <td>Joi</td>
+                                    <td>9-11</td>
+                                    <td>11-13</td>
+                                    <td>14-21</td>
+                                </tr>
+                                <tr>
+                                    <td>Vineri</td>
+                                    <td>9-12</td>
+                                    <td>12-14</td>
+                                    <td>14-19</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">Weekend</td>
+                                    <td>Sambata</td>
+                                    <td>10-12</td>
+                                    <td>12-13</td>
+                                    <td>13-16</td>
+                                </tr>
+                                <tr>
+                                    <td>Duminica</td>
+                                    <td>10-14</td>
+                                    <td>-</td>
+                                    <td>inchis</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="5">Închis cu ocazia sărbătorilor legale.</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
 
             </section>
 
@@ -309,29 +336,31 @@
                     <b>personalizate</b>, utilizand numai <b>materiale naturale</b> de cea mai buna <i>calitate</i>.
                     Indiferent daca cauti un <b>cadou</b> special sau un <b>suvenir autentic</b> care sa iti aminteasca
                     de
-                    vacanta in <b>Romania</b>, suntem siguri ca vei gasi ceva potrivit pe site-ul nostru.
+                    vacanta in <b>Romania</b>, suntem siguri ca vei gasi ceva potrivit pe site-ul nostru. Alege din urmatoarele categorii:
                 </p>
                 <ul>
                     <section>
-                        <h3>Masti</h3>
-                        <h3>Ie</h3>
-                        <h3>Ceramica</h3>
+                        <h3>Vestimantare</h3>
+                        <h3>Decorative</h3>
+                        <h3>Instrumente muzicale</h3>
+                        <h3>Suveniruri</h3>
+                        <h3>Alimente</h3>
                     </section>
             </section>
 
             <figure id="fig1" class="fg-img">
-                <img src="./resurse/imagini/caval_mic1.png" alt="caval">
-                <figcaption>Caval</figcaption>
+                <img src="./resurse/imagini/port_mic.jpg" alt="port">
+                <figcaption>Port traditional</figcaption>
             </figure>
 
             <figure id="fig2" class="fg-img">
-                <img src="./resurse/imagini/ceramica_mic1.jpg" alt="ceramica">
-                <figcaption>Ceramica</figcaption>
+                <img src="./resurse/imagini/hora_mic.jpg" alt="hora">
+                <figcaption>Hora</figcaption>
             </figure>
 
             <figure id="fig3" class="fg-img">
-                <img src="./resurse/imagini/ie_mic1.jpg" alt="ia">
-                <figcaption>Ie</figcaption>
+                <img src="./resurse/imagini/casa_mic.jpg" alt="casa">
+                <figcaption>Casa</figcaption>
             </figure>
 
         </div>
@@ -351,8 +380,7 @@
                     <a href="https://www.youtube.com/embed/Hyhkkk97HwE?si=sQGR2pDHNI3h8SW5" target="ifr-video">Caval</a>
                     <a href="https://www.youtube.com/embed/kpB2memLGHA?si=ejYK1BRSjZY7UtGq" target="ifr-video">Masti
                         traditionale</a>
-                    <a href="https://www.youtube.com/embed/C9INChbheIs?si=eQxT7VeMsbK_Kray" target="ifr-video">Ie
-                        traditional romaneasca</a>
+                    <a href="https://www.youtube.com/embed/C9INChbheIs?si=eQxT7VeMsbK_Kray" target="ifr-video">Ie romaneasca</a>
                 </div>
 
                 <iframe name="ifr-video" width="560" height="315"
@@ -388,8 +416,10 @@
             <h3>Contact</h3>
             <a href="tel:+40732815694">Telefon</a>
             <br>
+            <br>
 
-            <img src="./resurse/imagini/harta.png" alt="Harta unde ne gasesti" usemap="#harta-ro">
+            <img src="./resurse/imagini/harta_mic.png" alt="Harta unde ne gasesti" usemap="#harta-ro">
+            <br>
             <a href="https://www.google.com/maps/place/Facultatea+de+Matematic%C4%83+%C8%99i+Informatic%C4%83/@44.4355393,26.0970118,17z/data=!3m1!4b1!4m6!3m5!1s0x40b1ff472f47f047:0x493984726f0235f9!8m2!3d44.4355355!4d26.0995867!16s%2Fg%2F1td63tdh?authuser=0&entry=ttu&g_ep=EgoyMDI1MDMwOC4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank">Adresa maps</a>
 
@@ -412,6 +442,7 @@
             
             <br>
             <a href="mailto:DinTarg@gmail.com">Mail Din Targ</a>
+            <br>
             <br>
             <a href="https://api.whatsapp.com/send?phone=40732815694">Trimite-ne un mesaj pe Whatsapp</a>
             <br>

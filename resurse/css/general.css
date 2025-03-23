@@ -3,56 +3,100 @@
 /* border: 2px solid blue; */
 /* }  */
 
+/* Base font size for the entire document - affects all rem-based measurements */
 html {
     /* doar pentru html */
     font-size: 18px;
+    background-color: var(--culoare2);
 }
 
+/* Main container styling - affects the entire page layout */
 body {
-    --spatiere-pagina: 80px;
+    --spatiere-pagina: 60px;  /* Custom spacing variable used throughout the page */
     /* variabila */
-    --culoare-background: purple;
-    --culoare-deschisa: pink;
+    --culoare-background: rgb(228, 239, 221);  /* Light green background color */
+    --culoare-deschisa:  #D4E0C5;  /* Light color variable */
+    --culoare1: #CAEBC7;  /* Color variable 1 */
+    --culoare2: #C7EBDD;  /* Color variable 2 */
+    --culoare3: #C7EAD1;   /* Color variable 3 */
+    --culoare4: #D9EBC7;  /* Color variable 4 */
+    --culoare5: #C7EBE9;  /* Color variable 5 */
+
+    font-family: "Goudy Bookletter 1911", serif;  /* Main font for the entire page */
+    font-weight: 400;
+    font-style: normal;
 }
 
+/* Main heading styling - affects all h1 elements */
+h1 { /* font titlu */
+    font-family: "Goudy Bookletter 1911", serif;
+    /* font-weight: 400; */
+    font-style: normal;
+    color: var(--culoare1);
+    font-weight: bold;
+    font-size: 2rem;  
+
+}
+
+/* Secondary heading styling - affects all h2 elements */
 h2 {
-    font-size: 1.6rem;
-    /* 1.4 * cat e in html, rem = root em */
+    font-size: 1.6rem;  /* Relative to root font size */
+    /* 1.6 * cat e in html, rem = root em */
+    color: var(--culoare4);
 }
 
+/* Tertiary heading styling - affects all h3 elements */
 h3 {
     font-size: 1.3rem;
+    color: var(--culoare3);
 }
 
+/* Fourth level heading styling - affects all h4 elements */
+h4 {
+    font-size: 1.1rem;
+    color: var(--culoare5);
+}
+
+/* Grid layout container - affects the main content area layout */
 #grid-pagina {
     display: grid;
-    grid-template-areas: "welcome welcome welcome"
+    /* grid-template-areas: "welcome welcome welcome"
         "promotii promotii anunturi"
         "fig1 produse produse"
         "fig2 produse produse"
         "fig3 produse produse"
         "orar orar orar"
-        "index-intrebari index-intrebari index-intrebari";
+        "index-intrebari index-intrebari index-intrebari"; */
+
+    grid-template-areas: "welcome welcome welcome welcome"
+        "orar orar promotii promotii"
+        "fig1 produse promotii promotii"
+        "fig2 produse promotii promotii"
+        "fig3 anunturi anunturi index-intrebari";
 }
 
+/* Common styling for all direct children of grid container */
 #grid-pagina>* {
     /* > * inseamna toate elementele child din grid */
-    outline: 1px solid navy;
+    outline: 1px solid navy;  /* Adds border to all grid items */
     padding: 7px;
     /* margine */
 }
 
+/* Removes default margin from figures in grid */
 #grid-pagina>figure {
     /* este doar pentru fig care sunt un copil al gridului */
     margin: 0;
 }
 
+/* Controls image size within grid */
 #grid-pagina>img {
     /* doar pentru img */
     width: 100%;
     max-width: 300px;
 }
 
+/* Main content area padding */
 main {
     /* doar pentru main */
     padding-left: var(--spatiere-pagina);
@@ -60,6 +104,13 @@ main {
     padding-right: var(--spatiere-pagina);
 }
 
+/* Header and footer padding */
+header, footer {
+    padding-left: var(--spatiere-pagina);
+    padding-right: var(--spatiere-pagina);
+}
+
+/* Grid area assignments for different sections */
 #welcome {
     grid-area: welcome;
 }
@@ -76,7 +127,6 @@ main {
     grid-area: orar;
 }
 
-/* de ce sunt asa de multe fig-uri? */
 #fig1 {
     grid-area: fig1;
 }
@@ -97,8 +147,73 @@ main {
     grid-area: index-intrebari;
 }
 
+/* Caption styling for figures */
 figcaption {
     text-align: center;
+}
+
+/* Table container for horizontal scroll on small screens */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* daca e mai mic de 800px, sa faca scroll */
+    margin: 20px 0;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse; /* marginea dintre celule se uneste */
+    margin-bottom: 20px;
+}
+
+/* Table caption styling */
+caption {
+    caption-side: bottom;
+    padding: 10px;
+    font-weight: bold;
+    color: var(--culoare4);
+}
+
+/* Table cell styling */
+th, td { /* th = header, td = data */
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    transition: font-size 0.75s;
+}
+
+/* Table header styling with thicker borders */
+th {
+    background-color: var(--culoare2);
+    border-width: 2px;
+}
+
+/* Even row styling */
+tr:nth-child(even) {
+    /* Creates a shadow effect around even table rows using --culoare1 variable */
+    /* The values are: horizontal offset (0), vertical offset (0), blur radius (10px), and shadow color */
+    box-shadow: 0 0 10px var(--culoare1);
+    color: black;
+}
+
+/* Odd row styling */
+tr:nth-child(odd) {
+    box-shadow: 0 0 10px var(--culoare4);
+    color: black;
+}
+
+/* Row hover effect */
+tr:hover {
+    background-color: var(--culoare5);
+}
+
+tr:hover td {
+    font-size: 1.2em; /* font-size 20% mai mare */
+}
+
+/* Remove background from cells to show row shadow */
+td, th {
+    background: transparent;
 }
 
 /* ordinea e importanta pentru ca unul il poate suprascrie pe altul */
@@ -106,13 +221,14 @@ figcaption {
 
     /*Media querry, ecran mediu*/
     html {
-        font-size: 14px;
+        font-size: 14px;  /* Smaller base font size for medium screens */
     }
 
     body {
-        --spatiere-pagina: 50px;
+        --spatiere-pagina: 50px;  /* Reduced spacing for medium screens */
     }
 
+    /*Adjusted grid layout for medium screens */
     #grid-pagina {
         grid-template-rows: 1fr 1fr;
         /* coloane de dimensiuni egale sau putem sa scriem repeat(2, 1fr) */
@@ -127,84 +243,141 @@ figcaption {
 }
 
 #link-top {
-    position: fixed;
-    bottom: 0.3em;
-    opacity: 0.5;
-    left: 0.3em;
-    width: 3rem;
-    box-sizing: border-box;
-    height: 3rem;
-    line-height: 3rem;
-    text-align: center;
-    border: 5px solid grey;
-    border-top-color: red;
-    border-radius: 50%;
-    background: rgb(220, 220, 220);
+    position: fixed;        /* Makes the element stay in a fixed position on the screen, even when scrolling */
+    bottom: 0.3em;         /* Positions the element 0.3em from the bottom of the viewport */
+    opacity: 0.5;          /* Makes the element 50% transparent */
+    left: 0.3em;          /* Positions the element 0.3em from the left of the viewport */
+    width: 3rem;          /* Sets the width to 3 root em units (relative to root font size) */
+    box-sizing: border-box; /* Includes padding and border in the element's total width/height */
+    height: 3rem;         /* Sets the height to 3 root em units */
+    line-height: 3rem;    /* Sets the text line height to match the element height for vertical centering */
+    text-align: center;   /* Centers any text content horizontally */
+    border: 5px solid var(--culoare4);  /* Creates a 5px solid border using the color4 variable */
+    border-top-color: var(--culoare5);  /* Changes just the top border color to color5 */
+    border-bottom-color: var(--culoare5); /* Changes just the bottom border color to color5 */
+    border-radius: 50%;   /* Makes the element circular (50% border radius creates a perfect circle) */
+    background: rgb(220, 220, 220); /* Sets a light grey background color */
+    transition: transform 1s linear; /* Enables smooth 1-second linear transition for transform property */
 }
 
 #link-top:hover {
-    opacity: 1;
+    opacity: 1;           /* Makes the element fully opaque when hovered */
+    transform: rotateZ(90deg); /* Rotates the element 90 degrees clockwise on hover */
 }
 
 #triunghi {
-    height: 0px;
-    width: 0;
-    display: inline-block;
-    border-bottom: 1.5rem solid grey;
-    border-left: 1rem solid transparent;
-    border-right: 1rem solid transparent;
-    vertical-align: top;
-    transform: translateY(30%);
+    height: 0px;         /* Sets height to 0 (needed for triangle shape) */
+    width: 0;           /* Sets width to 0 (needed for triangle shape) */
+    display: inline-block; /* Makes element inline-block for proper positioning */
+    border-bottom: 1.5rem solid grey; /* Creates bottom part of triangle shape */
+    border-left: 1rem solid transparent; /* Creates left side of triangle shape */
+    border-right: 1rem solid transparent; /* Creates right side of triangle shape */
+    vertical-align: top; /* Aligns the triangle to the top of its container */
+    transform: translateY(30%); /* Moves the triangle down by 30% of its height */
+    transition: all 1s linear; /* Enables smooth 1-second linear transition for all properties */
 }
 
-h1 { /* font smecheros */
-    font-family: "Goudy Bookletter 1911", serif;
-    font-weight: 400;
-    font-style: normal;
+/* #triunghi:hover{ */
+#link-top:hover>#triunghi {
+    transform: translateY(30%) rotateZ(-90deg);
+    /* transform: scale (1.5, 1.5) translateY(30%) rotateZ(-90deg); */
+    border-bottom: 1.5rem solid var(--culoare5);
 }
 
+/* Container for iframe videos */
 .container-iframe{ /*. inseamna clasa */
     width: 60%;
     min-width: 200px;
-    max-width: 500px;
+    max-width: 600px;
     display: flex;
     flex-direction: row;
 }
 
-.container-iframe>iframe{
+/* Iframe sizing within container */
+.container-iframe>iframe{ /* > inseamna copilul direct */
     width: 100%;
 }
 
+/* Tab navigation for iframe content */
 .taburi-iframe{
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
 }
 
-.taburi-iframe a{
+/* Tab link styling */
+.taburi-iframe > a{ /* a = anchor */
     width: 100px;
     height: 50px;
     display: block;
-    border: 1px solid var(--culoare-background);
+    border: 1px solid black;
     text-align: center;
+    line-height: 50px; /* Makes line height match container height for vertical centering */
     font-weight: bold;
-    background-color: var(--culoare-deschisa);
+    background-color: var(--culoare3);
+    transition: background-color 1s, color 1s;
+    text-decoration: none; /* sa nu apara underline */
+    color: black;
 }
 
+/* Hover effect for tab links */
+.taburi-iframe > a:hover { /* doar pentru hover */
+    background-color: var(--culoare5); /* Culoarea pe hover */
+    color: white; 
+}
+
+/* Removes bottom margin from last tab */
+.taburi-iframe > a:last-child { /* doar pentru ultimul element */
+    margin-bottom: 0; /* Elimină marginea doar la ultimul element */
+}
+
+/* Responsive design for small screens */
 @media screen and (max-width: 800px) {
 
     /* mic, daca e mai mic de 800px, nu ii da prioritate mai mare doar face codul vizibil pentru pagini sub 800px */
+    /* Switches grid to block layout for small screens */
     #grid-pagina {
         display: block;
         /* display block, elementele sunt una sub alta */
     }
 
+    /* Smaller base font size for small screens */
     html {
         font-size: 10px;
     }
 
+    /* Reduced spacing for small screens */
     body {
         --spatiere-pagina: 20px;
     }
 
+    .table-container {
+        margin: 10px -20px;  /* Negative margin to allow full-width scroll */
+    }
+    
+    table {
+        min-width: 600px;  /* Minimum width to ensure all content is visible */
+    }
+}
+
+/* Stilizare pentru variabile (mi = math identifier) */
+mi {
+    font-style: italic;
+    color: var(--culoare1);
+}
+
+/* Stilizare pentru operatori (mo = math operator) */
+mo {
+    font-weight: bold;
+    color: var(--culoare2);
+}
+
+/* Stilizare pentru numere (mn = math number) */
+mn {
+    color: var(--culoare3);
+}
+
+/* Stilizare pentru fracții */
+mfrac {
+    color: var(--culoare4);
 }

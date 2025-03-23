@@ -3,13 +3,13 @@
 }
 
 nav {
-    background-color: var(--culoare-deschisa);
+    background-color: var(--culoare5);
     --inaltime-meniu: 30px;
     height: var(--inaltime-meniu);
-    --latime-buton: 150px;
+    --latime-buton: 200px;
 }
 
-.imag-incon{
+.imag-incon {
     display: none;
 }
 
@@ -31,7 +31,7 @@ ul.meniu{ /* stilizare meniu */
 ul.meniu li { 
     width:var(--latime-buton);
     height:var(--inaltime-meniu);
-    border: 1px solid var(--culoare-background);   
+    border: 1px solid var(--culoare2);   
     box-sizing: border-box;
     text-align: center;
     font-weight: bold; 
@@ -40,12 +40,12 @@ ul.meniu li {
 }
 
 ul.meniu li:hover{
-    background-attachment: var(--culoare-background);
+    background-attachment: var(--culoare2);
 }
 
 ul.meniu li:hover ul{
     display: block;
-    background-color: var(--culoare-deschisa);
+    background-color: var(--culoare5);
     position: relative; /* relativ la pozitia parintelui */
     list-style-type: none;
     left: -1px;
