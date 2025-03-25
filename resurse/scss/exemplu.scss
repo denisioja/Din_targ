@@ -1,0 +1,9 @@
+$a:red;
+p{
+    color: $a;
+}
+
+$a:green;
+div{
+    color: $a;
+}

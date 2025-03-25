@@ -1,0 +1,55 @@
+#hamburger {
+    display: block;
+
+}
+
+ul.meniu {
+    display: none;
+    margin: 0;
+    width: 100%;
+    background-color: var(--culoare5);
+}
+
+ul.meniu>li {
+    margin: 0;
+    width: 100%;
+}
+
+/* Fix for the menu items and their links */
+ul.meniu li a, 
+ul.meniu li div {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+/* Fix for submenu items */
+ul.meniu ul {
+    width: 100%;
+    padding: 0;  /* Remove default padding */
+}
+
+ul.meniu ul li {
+    width: 100%;
+}
+
+ul.meniu ul li a {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+#hamburger>img {
+    height:var(--inaltime-meniu);
+    display: block;
+}
+
+#ch-menu:checked+ul.meniu { /*+ fratele urmator*/
+    display: block; /*afisare meniu*/
+    position: relative;
+    z-index: 10; /*pozitia in fereastra*/
+}
+
+main {
+    margin-top: 20px;
+}

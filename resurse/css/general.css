@@ -21,6 +21,8 @@ body {
     --culoare3: #C7EAD1;   /* Color variable 3 */
     --culoare4: #D9EBC7;  /* Color variable 4 */
     --culoare5: #C7EBE9;  /* Color variable 5 */
+    --culoare-fundal-deschis: #fdfbf7; /* Un alb crem foarte deschis */
+    --padding-zona: 15px; /* Modificat de la 20px la 15px pentru ecrane mari */
 
     font-family: "Goudy Bookletter 1911", serif;  /* Main font for the entire page */
     font-weight: 400;
@@ -60,54 +62,61 @@ h4 {
 /* Grid layout container - affects the main content area layout */
 #grid-pagina {
     display: grid;
-    /* grid-template-areas: "welcome welcome welcome"
-        "promotii promotii anunturi"
-        "fig1 produse produse"
-        "fig2 produse produse"
-        "fig3 produse produse"
-        "orar orar orar"
-        "index-intrebari index-intrebari index-intrebari"; */
-
     grid-template-areas: "welcome welcome welcome welcome"
-        "orar orar promotii promotii"
-        "fig1 produse promotii promotii"
-        "fig2 produse promotii promotii"
-        "fig3 anunturi anunturi index-intrebari";
+                        "orar orar promotii promotii"
+                        "calendar statistici promotii promotii"
+                        "utilizatori statistici promotii promotii"
+                        "utilizatori anunturi anunturi site-server"
+                        "fig1 fig2 fig3 produse"
+                        "harta harta confectionare confectionare"
+                        "intrebari intrebari linkuri linkuri";
+    gap: 15px; /* Spațiere pentru ecrane mari - modificat de la 20px la 15px */
 }
 
 /* Common styling for all direct children of grid container */
 #grid-pagina>* {
     /* > * inseamna toate elementele child din grid */
-    outline: 1px solid navy;  /* Adds border to all grid items */
+    outline: 1px solid navy;  /* Adds border to all grid items */   
     padding: 7px;
     /* margine */
 }
 
 /* Removes default margin from figures in grid */
-#grid-pagina>figure {
-    /* este doar pentru fig care sunt un copil al gridului */
+#grid-pagina > figure {
     margin: 0;
+    padding: 0; /* Eliminăm padding-ul dublu */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 /* Controls image size within grid */
-#grid-pagina>img {
-    /* doar pentru img */
-    width: 100%;
-    max-width: 300px;
+#grid-pagina > figure img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain; /* Păstrează proporțiile și se încadrează complet în container */
+    display: block;
+}
+
+#grid-pagina > figure figcaption {
+    width: 80%;
+    padding: 5px;
+    margin-top: 10px;
+    text-align: center;
 }
 
 /* Main content area padding */
 main {
-    /* doar pentru main */
     padding-left: var(--spatiere-pagina);
-    /* folosim variabila */
     padding-right: var(--spatiere-pagina);
 }
 
 /* Header and footer padding */
 header, footer {
-    padding-left: var(--spatiere-pagina);
-    padding-right: var(--spatiere-pagina);
+    padding: var(--padding-zona) var(--spatiere-pagina);
 }
 
 /* Grid area assignments for different sections */
@@ -144,8 +153,37 @@ header, footer {
 }
 
 #intrebari {
-    grid-area: index-intrebari;
+    grid-area: intrebari;
 }
+
+#calendar {
+    grid-area: calendar;
+}
+
+#statistici {
+    grid-area: statistici;
+}
+
+#utilizatori {
+    grid-area: utilizatori;
+}
+
+#site-server {
+    grid-area: site-server;
+}
+
+#harta {
+    grid-area: harta;
+}
+
+#linkuri {
+    grid-area: linkuri;
+}
+
+#confectionare {
+    grid-area: confectionare;
+}
+
 
 /* Caption styling for figures */
 figcaption {
@@ -155,8 +193,10 @@ figcaption {
 /* Table container for horizontal scroll on small screens */
 .table-container {
     width: 100%;
-    overflow-x: auto; /* daca e mai mic de 800px, sa faca scroll */
+    overflow-x: auto;
     margin: 20px 0;
+    max-width: 100%; /* Ensure it doesn't exceed parent width */
+    position: relative; /* Create new containing block */
 }
 
 /* Table styling */
@@ -218,99 +258,135 @@ td, th {
 
 /* ordinea e importanta pentru ca unul il poate suprascrie pe altul */
 @media screen and (max-width: 1200px) {
-
     /*Media querry, ecran mediu*/
     html {
-        font-size: 14px;  /* Smaller base font size for medium screens */
+        font-size: 14px;
     }
 
     body {
-        --spatiere-pagina: 50px;  /* Reduced spacing for medium screens */
+        --spatiere-pagina: 50px;
+        --padding-zona: 10px; /* Modificat de la 15px la 10px pentru ecrane medii */
     }
 
-    /*Adjusted grid layout for medium screens */
+    main {
+        padding-left: var(--spatiere-pagina);
+        padding-right: var(--spatiere-pagina);
+        width: calc(100% - 2 * var(--spatiere-pagina)); /* Asigură că conținutul respectă padding-ul */
+    }
+
     #grid-pagina {
-        grid-template-rows: 1fr 1fr;
-        /* coloane de dimensiuni egale sau putem sa scriem repeat(2, 1fr) */
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(10, auto);
         grid-template-areas: "welcome welcome"
-            "promotii promotii" "anunturi anunturi"
-            "fig1 produse"
-            "fig2 produse"
-            "fig3 produse"
-            "orar orar"
-            "index-intrebari index-intrebari";
+                            "orar promotii"
+                            "calendar promotii"
+                            "statistici promotii"
+                            "utilizatori anunturi"
+                            "site-server produse"
+                            "fig1 fig2"
+                            "fig3 harta"
+                            "confectionare confectionare"
+                            "intrebari linkuri";
+        gap: 10px;
+        width: 100%; /* Asigură că grid-ul ocupă toată lățimea disponibilă */
+    }
+
+    #grid-pagina > figure {
+        height: 250px; /* Înălțime mai mică pentru ecrane medii */
     }
 }
 
+/* Stilizare pentru butonul de mers sus */
 #link-top {
-    position: fixed;        /* Makes the element stay in a fixed position on the screen, even when scrolling */
-    bottom: 0.3em;         /* Positions the element 0.3em from the bottom of the viewport */
-    opacity: 0.5;          /* Makes the element 50% transparent */
-    left: 0.3em;          /* Positions the element 0.3em from the left of the viewport */
-    width: 3rem;          /* Sets the width to 3 root em units (relative to root font size) */
-    box-sizing: border-box; /* Includes padding and border in the element's total width/height */
-    height: 3rem;         /* Sets the height to 3 root em units */
-    line-height: 3rem;    /* Sets the text line height to match the element height for vertical centering */
-    text-align: center;   /* Centers any text content horizontally */
-    border: 5px solid var(--culoare4);  /* Creates a 5px solid border using the color4 variable */
-    border-top-color: var(--culoare5);  /* Changes just the top border color to color5 */
-    border-bottom-color: var(--culoare5); /* Changes just the bottom border color to color5 */
-    border-radius: 50%;   /* Makes the element circular (50% border radius creates a perfect circle) */
-    background: rgb(220, 220, 220); /* Sets a light grey background color */
-    transition: transform 1s linear; /* Enables smooth 1-second linear transition for transform property */
+    /* Stiluri de bază (ca înainte) */
+    position: fixed;
+    bottom: 0.3em;
+    left: 0.1em;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: block;
+    border-radius: 50%;
+    background: rgb(220, 220, 220);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 5px solid;
+    border-color: var(--culoare5) var(--culoare4) var(--culoare5) var(--culoare4);
+    transition: transform 1s linear, opacity 1s linear, filter 0.5s ease;
+    opacity: 0.5;
+    z-index: 999;
+}
+
+.arrow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s linear;
+}
+
+.arrow {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrare */
+    font-size: 4em;
+    filter: blur(1px);
+    text-shadow: 0 0 2px rgba(70, 65, 65, 0.759);
+    transition: filter 0.5s ease, transform 1s linear; /*+transform pentru counter-rotate */
+    height: 0.6em;
+    overflow: hidden;
+    color: var(--culoare1);
 }
 
 #link-top:hover {
-    opacity: 1;           /* Makes the element fully opaque when hovered */
-    transform: rotateZ(90deg); /* Rotates the element 90 degrees clockwise on hover */
+    opacity: 1;
+    transform: rotateZ(90deg); /* Butonul se rotește */
 }
 
-#triunghi {
-    height: 0px;         /* Sets height to 0 (needed for triangle shape) */
-    width: 0;           /* Sets width to 0 (needed for triangle shape) */
-    display: inline-block; /* Makes element inline-block for proper positioning */
-    border-bottom: 1.5rem solid grey; /* Creates bottom part of triangle shape */
-    border-left: 1rem solid transparent; /* Creates left side of triangle shape */
-    border-right: 1rem solid transparent; /* Creates right side of triangle shape */
-    vertical-align: top; /* Aligns the triangle to the top of its container */
-    transform: translateY(30%); /* Moves the triangle down by 30% of its height */
-    transition: all 1s linear; /* Enables smooth 1-second linear transition for all properties */
+#link-top:hover .arrow-container {
+    transform: rotateZ(-90deg);
 }
 
-/* #triunghi:hover{ */
-#link-top:hover>#triunghi {
-    transform: translateY(30%) rotateZ(-90deg);
-    /* transform: scale (1.5, 1.5) translateY(30%) rotateZ(-90deg); */
-    border-bottom: 1.5rem solid var(--culoare5);
+#link-top:hover .arrow {
+    filter: blur(0);
+    text-shadow: none;
+    color: var(--culoare5);
 }
 
 /* Container for iframe videos */
-.container-iframe{ /*. inseamna clasa */
-    width: 60%;
+.container-iframe {
+    width: 100%;
     min-width: 200px;
-    max-width: 600px;
+    max-width: 100%; /* Modificat de la 600px pentru a ocupa tot spațiul disponibil */
     display: flex;
     flex-direction: row;
 }
 
 /* Iframe sizing within container */
-.container-iframe>iframe{ /* > inseamna copilul direct */
+.container-iframe > iframe {
     width: 100%;
+    height: 50vh; /* Înălțime relativă la viewport, la fel ca la PDF */
+    min-height: 300px;
+    max-height: 600px;
+    border: 2px solid var(--culoare5);
 }
 
 /* Tab navigation for iframe content */
-.taburi-iframe{
+.taburi-iframe {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+    min-width: 100px; /* Asigură că butoanele își mențin lățimea minimă */
+    flex-shrink: 0; /* Previne micșorarea coloanei de butoane */
 }
 
 /* Tab link styling */
 .taburi-iframe > a{ /* a = anchor */
-    width: 100px;
+    width: 100px;   
     height: 50px;
     display: block;
-    border: 1px solid black;
+    border: 2px solid var(--culoare5);
+    border-left: 5px solid var(--culoare5);
     text-align: center;
     line-height: 50px; /* Makes line height match container height for vertical centering */
     font-weight: bold;
@@ -318,6 +394,9 @@ td, th {
     transition: background-color 1s, color 1s;
     text-decoration: none; /* sa nu apara underline */
     color: black;
+    margin-bottom: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;  
 }
 
 /* Hover effect for tab links */
@@ -331,17 +410,19 @@ td, th {
     margin-bottom: 0; /* Elimină marginea doar la ultimul element */
 }
 
-/* Responsive design for small screens */
+/* Adăugăm media query pentru ecrane mai mici */
 @media screen and (max-width: 800px) {
+    #grid-pagina {
+        display: block;
+    }
+
+    /* Adăugăm spațiere între elementele grid-ului când sunt afișate ca blocuri */
+    #grid-pagina > * {
+        margin-bottom: 5px; /* Spațiere pentru ecran mic - modificat de la 10px la 5px */
+    }
 
     /* mic, daca e mai mic de 800px, nu ii da prioritate mai mare doar face codul vizibil pentru pagini sub 800px */
     /* Switches grid to block layout for small screens */
-    #grid-pagina {
-        display: block;
-        /* display block, elementele sunt una sub alta */
-    }
-
-    /* Smaller base font size for small screens */
     html {
         font-size: 10px;
     }
@@ -349,14 +430,38 @@ td, th {
     /* Reduced spacing for small screens */
     body {
         --spatiere-pagina: 20px;
+        --padding-zona: 5px; /* Modificat de la 10px la 5px pentru ecrane mici */
     }
 
     .table-container {
-        margin: 10px -20px;  /* Negative margin to allow full-width scroll */
+        margin: 10px 0; /* Remove negative margins */
+        padding: 0 var(--padding-zona); /* Add padding instead */
+        width: calc(100% - 2 * var(--padding-zona)); /* Account for padding */
     }
     
     table {
-        min-width: 600px;  /* Minimum width to ensure all content is visible */
+        min-width: 600px;
+        max-width: 100%; /* Ensure table doesn't force container wider */
+    }
+
+    .container-iframe {
+        flex-direction: column; /* Stivuim elementele pe ecrane mici */
+    }
+
+    .taburi-iframe {
+        flex-direction: row; /* Butoanele pe orizontală pe ecrane mici */
+        overflow-x: auto; /* Permite scroll horizontal dacă sunt prea multe butoane */
+        gap: 5px; /* Spațiere între butoane */
+    }
+
+    .taburi-iframe > a {
+        width: auto; /* Permite butoanelor să se ajusteze la conținut */
+        padding: 0 15px; /* Adaugă padding lateral pentru aspect mai bun */
+        white-space: nowrap; /* Previne ruperea textului pe mai multe linii */
+    }
+
+    #grid-pagina > figure {
+        height: 200px; /* Înălțime și mai mică pentru ecrane mici */
     }
 }
 
@@ -380,4 +485,192 @@ mn {
 /* Stilizare pentru fracții */
 mfrac {
     color: var(--culoare4);
+}
+
+/* Stilizare pentru embed PDF */
+#harta embed {
+    width: 100%; /* Va ocupa toată lățimea containerului părinte */
+    height: 50vh; /* Înălțime relativă la înălțimea viewport-ului */
+    min-height: 300px; /* Înălțime minimă pentru lizibilitate */
+    max-height: 600px; /* Înălțime maximă pentru ecrane mari */
+}
+
+/* Asigurăm că și link-ul de download se aliniază frumos */
+#harta p {
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Pentru zonele specifice care ar putea necesita ajustări diferite */
+#fig1, #fig2, #fig3 {
+    min-height: 200px; /* Asigură o înălțime minimă pentru zonele cu imagini */
+}
+
+/* Stilizare pentru toate figure din promotii, inclusiv cele cu picture */
+#promotii figure {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#promotii figure img, 
+#promotii figure picture {
+    width: 80%;
+    height: 80%;
+    display: block;
+}
+
+#promotii figure picture img {
+    width: 100%; /* Imaginea din picture să ocupe tot spațiul picture-ului */
+    height: 100%;
+    object-fit: contain;
+}
+
+#promotii figure figcaption {
+    width: 80%;
+    padding: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Header styling */
+header {
+    background-color: var(--culoare2);
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 15px var(--spatiere-pagina);
+}
+
+/* Footer styling */
+footer {
+    background-color: var(--culoare3);
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    padding: 15px var(--spatiere-pagina);
+    color: black;
+}
+
+/* Grid pentru conținutul principal din footer */
+footer > section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Două coloane egale */
+    grid-template-areas: 
+        "contact iframe"
+        "harta iframe"
+        "copyright copyright";
+    gap: 20px;
+}
+
+/* Add borders to footer grid areas */
+.contact-links,
+.location-info,
+#harta-iframe,
+.copyright {
+    padding: 10px;
+}
+
+/* Zonele din grid */
+.contact-links {
+    grid-area: contact;
+    max-height: 200px; /* Limitează înălțimea zonei de contact */
+}
+
+.location-info {
+    grid-area: harta;
+    max-height: 200px; /* Limitează înălțimea zonei cu harta */
+}
+
+#harta-iframe {
+    grid-area: iframe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    min-height: 500px;
+}
+
+#harta-iframe iframe {
+    width: 80%;
+    height: 80%;
+    min-height: 400px;
+}
+
+.copyright {
+    grid-area: copyright;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+footer h2, 
+footer h3, 
+footer h4 {
+    color: black; /* Face toate titlurile negre */
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Grid items styling - acest selector va gestiona padding-ul pentru toate elementele, inclusiv figurile */
+#grid-pagina > * {
+    background-color: var(--culoare-fundal-deschis);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: var(--padding-zona);
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Special sections styling */
+#welcome, #promotii, #anunturi, #calendar, #statistici, #confectionare {
+    background-color: var(--culoare-fundal-deschis);
+}
+
+/* Pentru zonele cu imagini */
+#fig1, #fig2, #fig3 {
+    background-color: var(--culoare-fundal-deschis);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive pentru ecrane medii */
+@media screen and (max-width: 1200px) {
+    footer > section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #harta-iframe iframe {
+        width: 80%;
+        min-height: 350px;
+    }
+}
+
+/* Responsive pentru ecrane mici */
+@media screen and (max-width: 800px) {
+    footer > section {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "contact"
+            "harta"
+            "iframe"
+            "copyright";
+    }
+
+    #harta-iframe iframe {
+        width: 80%;
+        min-height: 300px;
+    }
 }

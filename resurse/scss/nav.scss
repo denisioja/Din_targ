@@ -19,38 +19,38 @@ ul.meniu li div.imag-incon{ /* stilizare icons */
     display: none; 
 }
 
-ul.meniu ul { /* ascundem submeniurile */
-    display: none;
-    padding: 0;
-}
-
-ul.meniu{ /* stilizare meniu */
+ul.meniu {
     display: flex;
     list-style-type: none;
     padding: 0;
-}
 
-ul.meniu li { 
-    width:var(--latime-buton);
-    height:var(--inaltime-meniu);
-    border: 1px solid var(--culoare2);   
-    box-sizing: border-box;
-    text-align: center;
-    font-weight: bold; 
-    line-height: var(--inaltime-meniu);
-    transition: all 1s linear;
-}
+    ul { /* ascundem submeniurile */
+        display: none;
+        padding: 0;
+    }
 
-ul.meniu li:hover{
-    background-attachment: var(--culoare2);
-}
+    li { 
+        width:var(--latime-buton);
+        height:var(--inaltime-meniu);
+        border: 1px solid var(--culoare2);   
+        box-sizing: border-box;
+        text-align: center;
+        font-weight: bold; 
+        line-height: var(--inaltime-meniu);
+        transition: all 1s linear;
 
-ul.meniu li:hover ul{
-    display: block;
-    background-color: var(--culoare5);
-    position: relative; /* relativ la pozitia parintelui */
-    list-style-type: none;
-    left: -1px;
+        &:hover{
+            background-attachment: var(--culoare2);
+
+            ul{
+                display: block;
+                background-color: var(--culoare5);
+                position: relative; /* relativ la pozitia parintelui */
+                list-style-type: none;
+                left: -1px;
+            }
+        }
+    }
 }
 
 ul.meniu li:hover>a, ul.meniu li:hover>div{ 
