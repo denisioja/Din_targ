@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head> <!--capul documentului -->
+        <meta name="keywords"
+            content="tradiție, artizanal, mestesug, suvenir, românesc, ceramica, muzica, bucate, folclor, decoratiuni, vestimentatie, sculptură, artă, original, autentic, lucrat manual, materiale naturale, personalizat, cadou">
+        <!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
+        <meta name="description" content="Magazin artinzanal.">
+        <!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+        <title>Din targ - eroare</title>
+    
+        <%- include("../fragmente/head.ejs") %> <!--include fragmentul head.ejs -->
+        <link rel="stylesheet" type="text/css" href="/resurse/css/eroare.css">
+
+    </head>
+
+    
+    <body>
+        
+    <%- include("../fragmente/header.ejs");  %> 
+
+    <main>
+        <div id="err-coloane">
+			<div id="err-imag">
+				<img src="<%- locals.imagine %>" />
+			</div>
+			<section>
+				<h2><%- locals.titlu %></h2> /* atribuim titlului valoarea din obiectul erori */
+				<p><%- locals.text %></p>
+			</section>
+		</div>
+    </main>
+    
+    <%- include("../fragmente/footer.ejs");  %> 
+
+
+    </body>
+</html>

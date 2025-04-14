@@ -1,87 +1,143 @@
+body {
+  /* Culorile principale ale site-ului */
+  --culoare1: #CAEBC7;
+  --culoare2: #C7EBDD;
+  --culoare3: #C7EAD1;
+  --culoare4: #D9EBC7;
+  --culoare5: #C7EBE9;
+  --culoare-text: black;
+}
+
+$transition-timing: 1s ease; /* Am schimbat la ease pentru un efect mai natural */
+$border-style: 1px solid var(--culoare2);
+$animation-duration: 0.75s;
+
 #hamburger, #ch-menu {
-    display: none;
+  display: none;
 }
 
 nav {
-    background-color: var(--culoare5);
-    --inaltime-meniu: 30px;
-    height: var(--inaltime-meniu);
-    --latime-buton: 200px;
-    position: sticky;
-    top: 0;
-}
+  background-color: var(--culoare5);
+  --inaltime-meniu: 30px;
+  --latime-buton: 150px;
+  height: var(--inaltime-meniu);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 
-.imag-incon {
-    display: none;
-}
-
-ul.meniu li div.imag-incon{ /* stilizare icons */
-    display: none; 
-}
-
-ul.meniu {
+  ul.meniu {
     display: flex;
     list-style-type: none;
     padding: 0;
 
-    ul { /* ascundem submeniurile */
+    > li {
+      width: var(--latime-buton);
+      height: var(--inaltime-meniu);
+      border: $border-style;
+      box-sizing: border-box;
+      text-align: center;
+      font-weight: bold;
+      line-height: var(--inaltime-meniu);
+      position: relative;
+      background-color: var(--culoare5);
+      transition: box-shadow $transition-timing, background-color $transition-timing;
+
+      /* Efectul de umbră cu tranziție */
+      &:hover {
+        box-shadow: inset 0 0 12px 4px rgba(0, 0, 0, 0.5);
+        background-color: var(--culoare2);
+      }
+
+      ul {
         display: none;
         padding: 0;
-    }
+        animation-name: animatie_submeniu;
+        animation-timing-function: linear;
+        animation-iteration-count: 1;
+        animation-duration: $animation-duration;
+        animation-fill-mode: forwards;
+        transform-origin: 50% 0;
+        z-index: 1001;
 
-    li { 
-        width:var(--latime-buton);
-        height:var(--inaltime-meniu);
-        border: 1px solid var(--culoare2);   
-        box-sizing: border-box;
-        text-align: center;
-        font-weight: bold; 
-        line-height: var(--inaltime-meniu);
-        transition: all 1s linear;
+        li {
+          &:hover {
+            box-shadow: none;
+          }
 
-        &:hover{
-            background-attachment: var(--culoare2);
-
-            ul{
-                display: block;
-                background-color: var(--culoare5);
-                position: relative; /* relativ la pozitia parintelui */
-                list-style-type: none;
-                left: -1px;
+          a {
+            position: relative; // Important pentru poziționarea săgeții
+            // padding-left: 20px; // Spațiu pentru săgeată
+            text-align: center; // Centrăm textul
+    
+            &::before {
+              content: "→"; // Simbolul săgeții
+              position: absolute;
+              left: -10px; // Poziția inițială
+              top: 50%;
+              transform: translateY(-50%); // Centrare verticală
+              color: white;
+              font-size: 1.2em;
+              transition: opacity 0.3s ease-out, left 0.3s ease-out;
+              opacity: 0; // Inițial invizibilă
             }
+            
+            &:hover::before {
+              opacity: 1; // Devine vizibilă
+              left: 5px; // Se deplasează în poziția finală
+            }
+          }
+
         }
+      }
+
+      &:hover ul {
+        display: block;
+        background-color: var(--culoare5);
+        position: absolute;
+        width: 100%; // În loc de width: var(--latime-buton);
+        list-style-type: none;
+        left: 0; // Pentru a alinia perfect cu părintele
+      }
+
+      div.imag-icon {
+        display: none;
+      }
     }
-}
 
-ul.meniu li:hover>a, ul.meniu li:hover>div{ 
-    color: white;
-}
+    a, div {
+      display: block;
+      height: 100%;
+      text-decoration: none;
+      cursor: pointer;
+      color: black;
+      transition: color $transition-timing;
 
-ul.meniu a, ul.meniu div{
-    color: black;
-    text-decoration: none;
-    transition: all 1s linear;
-    display: block;
-    height: 100%;
-    cursor: pointer;    
-}
-
-ul.meniu ul{
-    animation-name: animatie_submeniu;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-    animation-duration: 0.75s;
-    animation-fill-mode: forwards;
-    transform-origin: 50% 0;
-}
-
-@keyframes animatie_submeniu {    
-    0% {
-        opacity: 0;
-        transform: scaleY(0);
+      &:hover {
+        color: white;
+      }
     }
-    100% {
-        opacity: 1;
-        transform: scaleY(100%);
-    }
-} 
+  }
+}
+
+/* Restul codului rămâne la fel */
+@for $i from 1 through 5 {
+  ul.meniu li:nth-child(#{$i}) ul {
+    border: 1px solid var(--culoare#{$i});
+    background-color: var(--culoare#{$i});
+  }
+
+  ul.meniu li:nth-child(#{$i}):hover {
+    background-color: var(--culoare-hover#{$i});
+  }
+}
+
+@keyframes animatie_submeniu {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(100%);
+  }
+}

@@ -85,7 +85,7 @@ h4 {
 #grid-pagina > figure {
     margin: 0;
     padding: 0; /* Eliminăm padding-ul dublu */
-    display: flex;
+    display: flex; /* flexbox care se foloseste pentru a centra elementele */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -193,7 +193,7 @@ figcaption {
 /* Table container for horizontal scroll on small screens */
 .table-container {
     width: 100%;
-    overflow-x: auto;
+    overflow-x: auto; /* daca e mai mic de 800px, se face scroll */
     margin: 20px 0;
     max-width: 100%; /* Ensure it doesn't exceed parent width */
     position: relative; /* Create new containing block */
@@ -307,7 +307,7 @@ td, th {
     display: block;
     border-radius: 50%;
     background: rgb(220, 220, 220);
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* shadow-ul din interior */
     border: 5px solid;
     border-color: var(--culoare5) var(--culoare4) var(--culoare5) var(--culoare4);
     transition: transform 1s linear, opacity 1s linear, filter 0.5s ease;

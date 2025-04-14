@@ -1,7 +1,32 @@
-ul.meniu li div.imag-icon{
-    display: block;
+ul.meniu {
+  font-size: 0.9rem;
 }
 
-ul.meniu ul li div.text-icon { 
-   display: none;
+ul.meniu > li:first-child > a {
+  font-size: 0;
+  position: relative;
 }
+ul.meniu > li:first-child > a:before {
+  content: "\f015";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 1.2rem;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ul.meniu > li:first-child > ul a {
+  font-size: 0.9rem;
+}
+ul.meniu > li:first-child > ul a:before {
+  content: none;
+}
+
+ul.meniu > li:first-child > div.imag-icon i.fa-home {
+  display: inline-block;
+}
+
+/*# sourceMappingURL=nav1000.css.map */

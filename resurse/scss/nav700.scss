@@ -1,0 +1,127 @@
+nav {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative; // Needed for submenu absolute positioning
+
+  // Reset any fixed width variables that might be interfering
+  --latime-buton: 100%;
+}
+
+// Hamburger menu button
+#hamburger {
+  display: block;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  line-height: 0; // Prevents extra space under image
+}
+
+// Hamburger icon image
+#hamburger > img {
+  height: var(--inaltime-meniu);
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+// Submenu hidden by default
+ul.meniu {
+  display: none !important;
+  margin: 0;
+  padding: 0;
+  width: 100% !important;
+  background-color: var(--culoare5);
+  flex-direction: column;
+
+  li {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: block;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 6px 15px;
+      height: var(--inaltime-meniu);
+      box-sizing: border-box;
+      text-align: center;
+      color: var(--culoare-text);
+      background-color: var(--culoare5);
+      border-bottom: 1px solid var(--culoare5);
+      transition: box-shadow 1s ease, background-color 1s ease;
+
+      &:hover {
+        box-shadow: inset 0 0 12px 4px rgba(0, 0, 0, 0.5);
+        background-color: var(--culoare2);
+        color: white;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+// Submenu visible when checkbox is checked
+#ch-menu:checked + ul.meniu {
+  display: block !important;
+  position: absolute;
+  top: 100%; // Position directly under the hamburger
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+// Hide horizontal menu if it exists
+nav ul.meniu.horizontal,
+ul.meniu.horizontal {
+  display: none !important;
+}
+
+// Push main content down a bit (optional)
+main {
+  margin-top: 20px;
+}
+
+// Înlocuiește textul "Acasa" cu iconul de căsuță în meniul vertical
+ul.meniu > li:first-child > a {
+  font-size: 0; // Ascunde textul "Acasa"
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  // Adăugăm iconul de căsuță cu pseudo-element
+  &::before {
+    content: "\f015"; // Codul Font Awesome pentru casa
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 1.2rem;
+    display: block !important; // Forțăm afișarea (suprascrie display: none anterior)
+    color: var(--culoare-text);
+  }
+  
+  &:hover::before {
+    color: white; // Schimbă culoarea iconului la hover
+  }
+}
+
+// Asigurăm că submeniul primului element păstrează textul vizibil
+ul.meniu > li:first-child > ul a {
+  font-size: inherit; // Restaurăm dimensiunea textului pentru submeniuri
+  
+  &::before {
+    content: none; // Eliminăm iconul de la submeniuri
+    display: none;
+  }
+}

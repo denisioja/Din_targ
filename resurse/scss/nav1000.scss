@@ -1,0 +1,37 @@
+// Micșorăm textul pentru ecran mediu
+ul.meniu {
+  font-size: 0.9rem;
+}
+
+// Pentru pagina principală (primul element din meniu)
+ul.meniu > li:first-child > a {
+  font-size: 0; // Ascunde textul "Acasa"
+  position: relative;
+  
+  // Adăugăm iconul de căsuță cu pseudo-element
+  &:before {
+    content: "\f015"; // Codul Font Awesome pentru casa
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 1.2rem;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Asigurăm că submeniul primului element păstrează textul vizibil
+ul.meniu > li:first-child > ul a {
+  font-size: 0.9rem;
+  
+  &:before {
+    content: none; // Eliminăm iconul de la submeniuri
+  }
+}
+
+// Asigurăm că iconul Font Awesome este vizibil
+ul.meniu > li:first-child > div.imag-icon i.fa-home {
+  display: inline-block;
+}
