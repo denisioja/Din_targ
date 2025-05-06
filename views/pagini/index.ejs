@@ -16,417 +16,422 @@
 <body> <!--corpul documentului -->
     <%- include("../fragmente/header.ejs") %> <!--include fragmentul header.ejs -->
 
-    <main> <!--conținutul principal al documentului -->
-        <div id="grid-pagina">
-            <section id="welcome"> <!--sectiunea documentului-->
-                <h2>Bine ati venit</h2>
-                <button type="button" class="btn btn-primary btn-lg">Stil-1-mare</button>
-                <p>Bine ati venit pe site-ul nostru
-                    <b>artizanal</b> <q>Din targ</q>, unde <b>tradiția</b> și
-                    <b>mestesugul</b> se unesc pentru a crea <b>suveniruri românești autentice</b>. De la
-                    <b>ceramica</b> la
-                    <b>sculptură</b>, de la <b>muzica</b> la <b>bucate</b> și <b>folclor</b>, oferim o gamă variată de
-                    produse <b>originale</b>, lucrate <b>manual</b> și <b>personalizate</b>, utilizând numai
-                    <b>materiale naturale</b> de cea mai bună <i>calitate</i>.
-                    Aici veți găsi o <i>gamă largă</i> de produse, inclusiv <b>decoratiuni</b>, <b>vestimentatie</b> și
-                    multe alte produse de <b>artă</b>, fiecare lucrată cu migala și atenție la detalii. Indiferent dacă
-                    căutați un <b>cadou</b> special sau un <b>suvenir autentic</b> care să vă amintească de vacanța în
-                    România, suntem siguri că veți găsi ceva potrivit pe site-ul nostru.
-                    Așadar, descoperiți bogăția și frumusețea culturii noastre prin intermediul <ins>produselor</ins>
-                    <ins>noastre</ins> <b>artizanale</b> și savurați adevărata valoare a lucrurilor făcute
-                    <b>manual</b>,
-                    care îmbină <b>tradiția</b> și inovația într-un mod <i>unic</i> și <i>deosebit</i>.
-                </p>
-                <p><b>Ip: </b> <%- locals.ip %> </p>
-            </section>
-            <section id="promotii">
-                <h3>Promotii</h3>
-                <!-- p>lorem ==> lorem ipsum  -->
-                <ul>
-                    <li>
-                        <h4>Reducere pentru toate produsele selectate!</h4>
-                        <p>Reducere: 20%</p>
-                        <p>Prețuri inițiale: 100 lei</p>
-                        <p>
-                            <math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <mi>Preț Redus</mi>
-                                <mo>=</mo>
-                                <mi>Preț Inițial</mi>
-                                <mo>-</mo>
-                                <mfenced>
-                                    <mfrac>
-                                        <mi>Procent Reducere</mi>
-                                        <mn>100</mn>
-                                    </mfrac>
-                                    <mo>×</mo>
-                                    <mi>Preț Inițial</mi>
-                                </mfenced>
-                            </math>
-                        </p>
-                    </li>
+        <main> <!--conținutul principal al documentului -->
+            <div id="grid-pagina">
+                <section id="welcome"> <!--sectiunea documentului-->
+                    <h2>Bine ati venit</h2>
+                    <button type="button" class="btn btn-primary btn-lg">Stil-1-mare</button>
+                    <p>Bine ati venit pe site-ul nostru
+                        <b>artizanal</b> <q>Din targ</q>, unde <b>tradiția</b> și
+                        <b>mestesugul</b> se unesc pentru a crea <b>suveniruri românești autentice</b>. De la
+                        <b>ceramica</b> la
+                        <b>sculptură</b>, de la <b>muzica</b> la <b>bucate</b> și <b>folclor</b>, oferim o gamă variată
+                        de
+                        produse <b>originale</b>, lucrate <b>manual</b> și <b>personalizate</b>, utilizând numai
+                        <b>materiale naturale</b> de cea mai bună <i>calitate</i>.
+                        Aici veți găsi o <i>gamă largă</i> de produse, inclusiv <b>decoratiuni</b>, <b>vestimentatie</b>
+                        și
+                        multe alte produse de <b>artă</b>, fiecare lucrată cu migala și atenție la detalii. Indiferent
+                        dacă
+                        căutați un <b>cadou</b> special sau un <b>suvenir autentic</b> care să vă amintească de vacanța
+                        în
+                        România, suntem siguri că veți găsi ceva potrivit pe site-ul nostru.
+                        Așadar, descoperiți bogăția și frumusețea culturii noastre prin intermediul
+                        <ins>produselor</ins>
+                        <ins>noastre</ins> <b>artizanale</b> și savurați adevărata valoare a lucrurilor făcute
+                        <b>manual</b>,
+                        care îmbină <b>tradiția</b> și inovația într-un mod <i>unic</i> și <i>deosebit</i>.
+                    </p>
+                    <p><b>Ip: </b> <%- locals.ip %> </p>
+                </section>
 
-                    <li>
-                        <h4>Masti</h4>
-                        <figure> <!--Etapa 1, task 8-->
-                            <picture>
-                                <source media="(max-width: 768px)" srcset="/resurse/imagini/masca2_mica.jpg">
-                                <source media="(min-width: 769px)  and (max-width: 1023px)"
-                                    srcset="/resurse/imagini/masca2_medie.jpg">
-                                <source media="(min-width: 1024px)" srcset="/resurse/imagini/masca2.jpg">
+                <section id="video-intro" style="grid-column: span 4;">
+                    <!-- Span across all columns in the main grid -->
+                    <h2>Descoperă Tradiția</h2>
+                    <div id="container-video">
+                        <video controls poster="/resurse/video/poster.jpg" preload="auto">
+                            <!-- Add multiple sources for compatibility -->
+                            <source src="/resurse/video/animatie.mp4" type="video/mp4" />
+                            <source src="/resurse/video/animatie.webm" type="video/webm" />
+                            <!-- Add track elements for subtitles -->
+                            <track src="/resurse/video/romana.vtt" kind="subtitles" srclang="ro" label="Română"
+                                default />
+                            <track src="/resurse/video/engleza.vtt" kind="subtitles" srclang="en" label="English" />
+                            Browserul dumneavoastră nu suportă tagul video.
+                        </video>
+                    </div>
+                </section>
 
-                                <img src="/resurse/imagini/masca2.jpg" alt="Masti" />
-                                <!--in caz ca niciuna din pozele de mai sus nu e gasita, o vom folosi pe asta-->
-                            </picture>
-                            <figcaption>Masti <b>traditionale</b> romanesti la super pret!</figcaption>
-                        </figure>
-                    </li>
-
-                    <li>
-                        <h4>Caval</h4>
-                        <figure>
-                            <img src="/resurse/imagini/caval_mic.jpg" alt="Caval" />
-                            <figcaption>Caval traditional romanesc</figcaption>
-                        </figure>
-                    </li>
-
-                    <li>
-                        <h4>Ceramica</h4>
-                        <figure>
-                            <img src="/resurse/imagini/ceramica_mic.jpg" alt="Ceramica" />
-                            <figcaption>Ceramica traditionala romaneasca</figcaption>
-                        </figure>
-                    </li>
-
-                </ul>
-            </section>
-
-            <section id="anunturi">
-                <h2>Anunturi</h2>
-                <p>Aici ai ultimele noutati si evenimente din lumea <b>mestesugarilor</b>! In aceasta sectiune, te tinem
-                    la
-                    curent cu cele mai recente produse, promotii si activitati organizate de noi. Fii primul care afla
-                    despre lansarile de produse, expozitiile de arta si targurile traditionale la care participam. Vino
-                    sa ne vizitezi si sa te bucuri de o experienta autentica!</p>
-                <details><!--task 12, etapa 1-->
-                    <summary>Evenimente viitoare</summary>
-                    <p>Expozitie de ceramica traditionala - 15 iulie 2025</p>
-                </details>
-                <details>
-                    <summary>Produse noi</summary>
+                <section id="promotii">
+                    <h3>Promotii</h3>
+                    <!-- p>lorem ==> lorem ipsum  -->
                     <ul>
-                        <li>Masti traditionale romanesti</li>
-                        <li>Ie traditionala romaneasca</li>
-                        <li>Ceramica pictata manual</li>
-                    </ul>
-                </details>
-            </section>
-
-            <section id="orar">
-                <h2>Orar</h2>
-                <p>Descopera orarul nostru de functionare si vino sa ne vizitezi in magazinul nostru! Te asteptam cu
-                    drag sa descoperi <ins>produsele noastre</ins> <b>traditionale</b> si sa te bucuri de o experienta
-                    plina
-                    de <i>culoare</i> si <i>creativitate</i> !</p>
-                <div class="table-container">
-                    <table>
-                        <caption>Program de lucru</caption>
-                        <thead>
-                            <tr>
-                                <th>Perioadă</th>
-                                <th>Zi</th>
-                                <th>Interval dimineata</th>
-                                <th>Pauza de masa</th>
-                                <th>Interval seară</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td rowspan="5">Zile<br />Lucrătoare</td> <!-- rowspan = merge pe verticala -->
-                                <td>Luni</td>
-                                <td>10-12</td>
-                                <td>12-14</td>
-                                <td>14-20</td>
-                            </tr>
-                            <tr>
-                                <td>Marti</td>
-                                <td>9-12</td>
-                                <td>12-14</td>
-                                <td>14-21</td>
-                            </tr>
-                            <tr>
-                                <td>Miercuri</td>
-                                <td>9-11</td>
-                                <td>11-13</td>
-                                <td>14-21</td>
-                            </tr>
-                            <tr>
-                                <td>Joi</td>
-                                <td>9-11</td>
-                                <td>11-13</td>
-                                <td>14-21</td>
-                            </tr>
-                            <tr>
-                                <td>Vineri</td>
-                                <td>9-12</td>
-                                <td>12-14</td>
-                                <td>14-19</td>
-                            </tr>
-                            <tr>
-                                <td rowspan="2">Weekend</td>
-                                <td>Sambata</td>
-                                <td>10-12</td>
-                                <td>12-13</td>
-                                <td>13-16</td>
-                            </tr>
-                            <tr>
-                                <td>Duminica</td>
-                                <td>10-14</td>
-                                <td>-</td>
-                                <td>inchis</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="5">Închis cu ocazia sărbătorilor legale.</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-
-            </section>
-
-            <section id="intrebari">
-                <h2>Intrebari frecvente</h2>
-                <ol>
-                    <li>
-                        <details>
-                            <summary> Care este termenul de livrare al produselor?</summary>
-                            <p>Termenul de livrare al produselor este de 2-3 zile lucratoare de la data plasarii
-                                comenzii.
-                                Livrarea se face prin curier rapid, iar costul transportului este de 15 lei pentru
-                                comenzile sub 200 lei si gratuit pentru comenzile de peste 200 lei.</p>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary>Care sunt modalitatile de plata acceptate?</summary>
-                            <p>Puteti plati produsele comandate online cu cardul sau ramburs la livrare. De asemenea,
-                                puteti
-                                plati in numerar sau cu cardul la magazinul nostru.</p>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary>Pot returna produsele achizitionate?</summary>
-                            <p>Da, puteti returna produsele achizitionate in termen de 14 zile de la primirea lor, fara
-                                a fi
-                                nevoie de vreo justificare. Costul returului este suportat de client.</p>
-
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary>Cum pot contacta echipa <q>Din targ?</q></summary>
+                        <li>
+                            <h4>Reducere pentru toate produsele selectate!</h4>
+                            <p>Reducere: 20%</p>
+                            <p>Prețuri inițiale: 100 lei</p>
                             <p>
-                                Pentru orice intrebare sau nelamurire, va rugam sa ne contactati la adresa de email din
-                                josul paginii.
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mi>Preț Redus</mi>
+                                    <mo>=</mo>
+                                    <mi>Preț Inițial</mi>
+                                    <mo>-</mo>
+                                    <mfenced>
+                                        <mfrac>
+                                            <mi>Procent Reducere</mi>
+                                            <mn>100</mn>
+                                        </mfrac>
+                                        <mo>×</mo>
+                                        <mi>Preț Inițial</mi>
+                                    </mfenced>
+                                </math>
                             </p>
-                        </details>
+                        </li>
 
-                    </li>
-                    <li>
-                        <details>
-                            <summary>Ce se intampla daca produsul primit este defect?</summary>
-                            <p> In cazul in care produsul primit este defect, va rugam sa ne contactati imediat pentru a
-                                putea
-                                remedia situatia. Puteti opta pentru inlocuirea produsului sau returnarea banilor.</p>
-                        </details>
-                    </li>
-                </ol>
-            </section>
+                        <hr class="fancy-hr">
 
-            <section id="produse">
-                <h2>Produse</h2>
-                <p>Descopera gama noastra variata de produse <b>traditionale</b> si <b>autentice</b>! De la
-                    <b>vestimentatie</b> la <b>decoratiuni</b>, de la <b>instrumente muzicale</b> la <b>suveniruri</b>
-                    si
-                    <b>cadouri</b>, oferim o selectie vasta de produse <b>originale</b>, lucrate <b>manual</b> si
-                    <b>personalizate</b>, utilizand numai <b>materiale naturale</b> de cea mai buna <i>calitate</i>.
-                    Indiferent daca cauti un <b>cadou</b> special sau un <b>suvenir autentic</b> care sa iti aminteasca
-                    de
-                    vacanta in <b>Romania</b>, suntem siguri ca vei gasi ceva potrivit pe site-ul nostru. Alege din
-                    urmatoarele categorii:
-                </p>
-                <ul>
-                    <section>
-                        <h3>Vestimantare</h3>
-                        <h3>Decorative</h3>
-                        <h3>Instrumente muzicale</h3>
-                        <h3>Suveniruri</h3>
-                        <h3>Alimente</h3>
-                    </section>
-            </section>
+                        <li>
+                            <h4>Masti</h4>
+                            <figure> <!--Etapa 1, task 8-->
+                                <picture>
+                                    <source media="(max-width: 768px)" srcset="/resurse/imagini/masca2_mica.jpg">
+                                    <source media="(min-width: 769px)  and (max-width: 1023px)"
+                                        srcset="/resurse/imagini/masca2_medie.jpg">
+                                    <source media="(min-width: 1024px)" srcset="/resurse/imagini/masca2.jpg">
 
-            <figure id="fig1" class="fg-img">
-                <img src="/resurse/imagini/port_mic.jpg" alt="port">
-                <figcaption>Port traditional</figcaption>
-            </figure>
+                                    <img src="/resurse/imagini/masca2.jpg" alt="Masti" />
+                                    <!--in caz ca niciuna din pozele de mai sus nu e gasita, o vom folosi pe asta-->
+                                </picture>
+                                <figcaption>Masti <b>traditionale</b> romanesti la super pret!</figcaption>
+                            </figure>
+                        </li>
 
-            <figure id="fig2" class="fg-img">
-                <img src="/resurse/imagini/hora_mic.jpg" alt="hora">
-                <figcaption>Hora</figcaption>
-            </figure>
+                        <hr class="fancy-hr">
 
-            <figure id="fig3" class="fg-img">
-                <img src="/resurse/imagini/casa_mic.jpg" alt="casa">
-                <figcaption>Casa</figcaption>
-            </figure>
+                        <li>
+                            <h4>Caval</h4>
+                            <figure>
+                                <img src="/resurse/imagini/caval_mic.jpg" alt="Caval" />
+                                <figcaption>Caval traditional romanesc</figcaption>
+                            </figure>
+                        </li>
 
-            <section id="calendar">
-                <h2>
-                    Calendar evenimente
-                    <i class="fa-regular fa-calendar"></i>
-                </h2>
+                        <hr class="fancy-hr">
 
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem expedita vitae magnam, quam quis
-                    minus molestias illo mollitia.
-                    Veniam vero eius similique iure alias consectetur nulla illum natus quos doloremque?
-                <p>
-                </p>
-            </section>
+                        <li>
+                            <h4>Ceramica</h4>
+                            <figure>
+                                <img src="/resurse/imagini/ceramica_mic.jpg" alt="Ceramica" />
+                                <figcaption>Ceramica traditionala romaneasca</figcaption>
+                            </figure>
+                        </li>
 
-            <section id="statistici">
-                <h2>Statistici</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem expedita vitae magnam, quam quis
-                    minus molestias illo mollitia.
-                    Veniam vero eius similique iure alias consectetur nulla illum natus quos doloremque?
-                <p>
-                </p>
-            </section>
+                    </ul>
+                </section>
 
-            <section id="utilizatori">
-                <h2>Utilizatori online</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem expedita vitae magnam, quam quis
-                    minus molestias illo mollitia.
-                    Veniam vero eius similique iure alias consectetur nulla illum natus quos doloremque?
-                <p>
-                </p>
-            </section>
+                <section id="anunturi">
+                    <h2>Anunturi</h2>
+                    <p>Aici ai ultimele noutati si evenimente din lumea <b>mestesugarilor</b>! In aceasta sectiune, te
+                        tinem
+                        la
+                        curent cu cele mai recente produse, promotii si activitati organizate de noi. Fii primul care
+                        afla
+                        despre lansarile de produse, expozitiile de arta si targurile traditionale la care participam.
+                        Vino
+                        sa ne vizitezi si sa te bucuri de o experienta autentica!</p>
+                    <details><!--task 12, etapa 1-->
+                        <summary>Evenimente viitoare</summary>
+                        <p>Expozitie de ceramica traditionala - 15 iulie 2025</p>
+                    </details>
+                    <details>
+                        <summary>Produse noi</summary>
+                        <ul>
+                            <li>Masti traditionale romanesti</li>
+                            <li>Ie traditionala romaneasca</li>
+                            <li>Ceramica pictata manual</li>
+                        </ul>
+                    </details>
+                </section>
 
-            <section id="site-server">
-                <h2>Site&Server</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem expedita vitae magnam, quam quis
-                    minus molestias illo mollitia.
-                    Veniam vero eius similique iure alias consectetur nulla illum natus quos doloremque?
-                <p>
-                </p>
-            </section>
-
-            <section id="galerie-statica"> <!--galerie statica - de modificat -->
-                <h2>Galerie</h2>
-                <div id="grid-galerie">
-                    <% 
-                    d = new Date()
-                    vect_luni=["ianuarie", "februarie", "martie", "aprilie", "mai", "iunie", "iulie","august","septembrie","octombrie","noiembrie","decembrie"]
-                    luna_curenta = vect_luni[d.getMonth()]
-                        
-                    for (let imag of locals.imagini) { %>
-                        <% if (imag.luni && imag.luni.includes(luna_curenta)) { %>
-                            <picture>
-                                <source srcset = "<%- imag.fisier_mediu %>" media="screen and (max-width: 1000px)" />
-                                <img src = "<%- imag.fisier %>" alt = "briose">
-                            </picture>
-                        <% } %>
-                    <% } %>
-                    <!-- <figure>
-                    <img src="/resurse/imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                    </figure>
-                    <figure>
-                    <img src="/resurse/imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                    </figure>
-                    <figure>
-                    <img src="/resurse/imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                    </figure>
-                    <figure>
-                    <img src="/resurse/imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                    </figure>
-                    <figure>
-                    <img src="/resurse/imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                    </figure>
-                    <figure>
-                    <img src="/resurse/imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                    </figure>
-                    <figure>
-                    <img src="/resurse/imagini/briose-frisca.png" alt="briose">
-                    <figcaption>Briose</figcaption>
-                    </figure> -->
-                
-                </div>
-            </section>
-
-            <section id="confectionare">
-                <h2>
-                    Confectionare
-                    <i class="fa-brands fa-youtube fa-fade"></i>
-                </h2>
-                <p>Descopera secretele <b>mestesugarilor</b>! In aceasta sectiune, te invitam sa urmaresti clipuri video
-                    captivante care iti dezvaluie procesul de creatie al <ins>produselor noastre</ins>
-                    <b>traditionale</b>.
-                    Vei fi
-                    martorul transformarii materialelor brute in obiecte unicat, purtand amprenta autenticitatii
-                    <b>romanesti</b>.
-                </p>
-
-
-                <!-- iframe, etapa 1, task 11, c -->
-                <div class="container-iframe"> <!--div este un tag de grupare-->
-                    <div class="taburi-iframe">
-                        <a href="https://www.youtube.com/embed/Hyhkkk97HwE?si=sQGR2pDHNI3h8SW5"
-                            target="ifr-video">Caval</a>
-                        <a href="https://www.youtube.com/embed/kpB2memLGHA?si=ejYK1BRSjZY7UtGq" target="ifr-video">Masti
-                            traditionale</a>
-                        <a href="https://www.youtube.com/embed/C9INChbheIs?si=eQxT7VeMsbK_Kray" target="ifr-video">Ie
-                            romaneasca</a>
+                <section id="orar">
+                    <h2 class="reflected-heading"> <!--Text refletcat-->
+                        <span class="original-text">Orar</span><span class="reflection">Orar</span>
+                    </h2>
+                    <p>Descopera orarul nostru de functionare si vino sa ne vizitezi in magazinul nostru! Te asteptam cu
+                        drag sa descoperi <ins>produsele noastre</ins> <b>traditionale</b> si sa te bucuri de o
+                        experienta
+                        plina
+                        de <i>culoare</i> si <i>creativitate</i> !</p>
+                    <div class="table-container">
+                        <table>
+                            <caption>Program de lucru</caption>
+                            <thead>
+                                <tr>
+                                    <th>Perioadă</th>
+                                    <th>Zi</th>
+                                    <th>Interval dimineata</th>
+                                    <th>Pauza de masa</th>
+                                    <th>Interval seară</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="5">Zile<br />Lucrătoare</td> <!-- rowspan = merge pe verticala -->
+                                    <td>Luni</td>
+                                    <td>10-12</td>
+                                    <td>12-14</td>
+                                    <td>14-20</td>
+                                </tr>
+                                <tr>
+                                    <td>Marti</td>
+                                    <td>9-12</td>
+                                    <td>12-14</td>
+                                    <td>14-21</td>
+                                </tr>
+                                <tr>
+                                    <td>Miercuri</td>
+                                    <td>9-11</td>
+                                    <td>11-13</td>
+                                    <td>14-21</td>
+                                </tr>
+                                <tr>
+                                    <td>Joi</td>
+                                    <td>9-11</td>
+                                    <td>11-13</td>
+                                    <td>14-21</td>
+                                </tr>
+                                <tr>
+                                    <td>Vineri</td>
+                                    <td>9-12</td>
+                                    <td>12-14</td>
+                                    <td>14-19</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">Weekend</td>
+                                    <td>Sambata</td>
+                                    <td>10-12</td>
+                                    <td>12-13</td>
+                                    <td>13-16</td>
+                                </tr>
+                                <tr>
+                                    <td>Duminica</td>
+                                    <td>10-14</td>
+                                    <td>-</td>
+                                    <td>inchis</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="5">Închis cu ocazia sărbătorilor legale.</td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
 
-                    <iframe name="ifr-video" width="560" height="315"
-                        src="https://www.youtube.com/embed/Hyhkkk97HwE?si=sQGR2pDHNI3h8SW5" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
+                </section>
 
-            </section>
+                <section id="intrebari">
+                    <h2>Intrebari frecvente</h2>
+                    <ol>
+                        <li>
+                            <details>
+                                <summary> Care este termenul de livrare al produselor?</summary>
+                                <p>Termenul de livrare al produselor este de 2-3 zile lucratoare de la data plasarii
+                                    comenzii.
+                                    Livrarea se face prin curier rapid, iar costul transportului este de 15 lei pentru
+                                    comenzile sub 200 lei si gratuit pentru comenzile de peste 200 lei.</p>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary>Care sunt modalitatile de plata acceptate?</summary>
+                                <p>Puteti plati produsele comandate online cu cardul sau ramburs la livrare. De
+                                    asemenea,
+                                    puteti
+                                    plati in numerar sau cu cardul la magazinul nostru.</p>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary>Pot returna produsele achizitionate?</summary>
+                                <p>Da, puteti returna produsele achizitionate in termen de 14 zile de la primirea lor,
+                                    fara
+                                    a fi
+                                    nevoie de vreo justificare. Costul returului este suportat de client.</p>
 
-            <section id="harta">
-                <h2>Harta Mestesuguri</h2>
-                <p>Vizualizați harta noastra:</p>
-                <embed src="/resurse/pdf/Mestesuguri.pdf" type="application/pdf" width="600" height="400">
-                <p><a href="/resurse/pdf/Mestesuguri.pdf" download="/resurse/pdf/Mestesuguri.pdf">Descarcă Harta
-                        PDF</a></p>
-            </section>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary>Cum pot contacta echipa <q>Din targ?</q></summary>
+                                <p>
+                                    Pentru orice intrebare sau nelamurire, va rugam sa ne contactati la adresa de email
+                                    din
+                                    josul paginii.
+                                </p>
+                            </details>
 
-            <section id="linkuri">
-                <h2>Linkuri utile</h2>
-                <!--link extern, etapa 1, task 11, a-->
-                <a href="https://iarmaroc.com" target="_blank">Shoutout prietenilor nostrii de la IARMAROC.com</a>
-                <br>
-            </section>
-        </div>
+                        </li>
+                        <li>
+                            <details>
+                                <summary>Ce se intampla daca produsul primit este defect?</summary>
+                                <p> In cazul in care produsul primit este defect, va rugam sa ne contactati imediat
+                                    pentru a
+                                    putea
+                                    remedia situatia. Puteti opta pentru inlocuirea produsului sau returnarea banilor.
+                                </p>
+                            </details>
+                        </li>
+                    </ol>
+                </section>
 
-    </main>
+                <section id="produse">
+                    <h2>Produse</h2>
+                    <p>Descopera gama noastra variata de produse <b>traditionale</b> si <b>autentice</b>! De la
+                        <b>vestimentatie</b> la <b>decoratiuni</b>, de la <b>instrumente muzicale</b> la
+                        <b>suveniruri</b>
+                        si
+                        <b>cadouri</b>, oferim o selectie vasta de produse <b>originale</b>, lucrate <b>manual</b> si
+                        <b>personalizate</b>, utilizand numai <b>materiale naturale</b> de cea mai buna <i>calitate</i>.
+                        Indiferent daca cauti un <b>cadou</b> special sau un <b>suvenir autentic</b> care sa iti
+                        aminteasca
+                        de
+                        vacanta in <b>Romania</b>, suntem siguri ca vei gasi ceva potrivit pe site-ul nostru. Alege din
+                        urmatoarele categorii:
+                    </p>
+                    <ul>
+                        <section>
+                            <h3>Vestimantare</h3>
+                            <h3>Decorative</h3>
+                            <h3>Instrumente muzicale</h3>
+                            <h3>Suveniruri</h3>
+                            <h3>Alimente</h3>
+                        </section>
+                </section>
 
-    <%- include("../fragmente/footer.ejs") %> <!--include fragmentul footer.ejs -->
+                <figure id="fig1" class="fg-img">
+                    <img src="/resurse/imagini/port_mic.jpg" alt="port">
+                    <figcaption>Port traditional</figcaption>
+                </figure>
+
+                <figure id="fig2" class="fg-img">
+                    <div class="duotone-container"></div>
+                    <figcaption>Hora</figcaption>
+                </figure>
+
+                <figure id="fig3" class="fg-img">
+                    <img src="/resurse/imagini/casa_mic.jpg" alt="casa">
+                    <figcaption>Casa</figcaption>
+                </figure>
+
+                <section id="calendar">
+                    <h2>
+                        Calendar evenimente
+                        <i class="fa-regular fa-calendar"></i>
+                    </h2>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem expedita vitae magnam, quam
+                        quis
+                        minus molestias illo mollitia.
+                        Veniam vero eius similique iure alias consectetur nulla illum natus quos doloremque?
+                    <p>
+                    </p>
+                </section>
+
+                <section id="statistici">
+                    <h2>Statistici</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem expedita vitae magnam, quam
+                        quis
+                        minus molestias illo mollitia.
+                        Veniam vero eius similique iure alias consectetur nulla illum natus quos doloremque?
+                    <p>
+                    </p>
+                </section>
+
+                <section id="utilizatori">
+                    <h2>Utilizatori online</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem expedita vitae magnam, quam
+                        quis
+                        minus molestias illo mollitia.
+                        Veniam vero eius similique iure alias consectetur nulla illum natus quos doloremque?
+                    <p>
+                    </p>
+                </section>
+
+                <section id="site-server">
+                    <h2>Site&Server</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem expedita vitae magnam, quam
+                        quis
+                        minus molestias illo mollitia.
+                        Veniam vero eius similique iure alias consectetur nulla illum natus quos doloremque?
+                    <p>
+                    </p>
+                </section>
+
+                <section id="galerie-statica"> <!--galerie statica - de modificat -->
+                    <h2>Galerie</h2>
+                    <%- include("../fragmente/galerie.ejs") %>
+                </section>
+
+                <section id="confectionare">
+                    <h2>
+                        Confectionare
+                        <i class="fa-brands fa-youtube fa-fade"></i>
+                    </h2>
+                    <p>Descopera secretele <b>mestesugarilor</b>! In aceasta sectiune, te invitam sa urmaresti clipuri
+                        video
+                        captivante care iti dezvaluie procesul de creatie al <ins>produselor noastre</ins>
+                        <b>traditionale</b>.
+                        Vei fi
+                        martorul transformarii materialelor brute in obiecte unicat, purtand amprenta autenticitatii
+                        <b>romanesti</b>.
+                    </p>
+
+
+                    <!-- iframe, etapa 1, task 11, c -->
+                    <div class="container-iframe"> <!--div este un tag de grupare-->
+                        <div class="taburi-iframe">
+                            <a href="https://www.youtube.com/embed/Hyhkkk97HwE?si=sQGR2pDHNI3h8SW5"
+                                target="ifr-video">Caval</a>
+                            <a href="https://www.youtube.com/embed/kpB2memLGHA?si=ejYK1BRSjZY7UtGq"
+                                target="ifr-video">Masti
+                                traditionale</a>
+                            <a href="https://www.youtube.com/embed/C9INChbheIs?si=eQxT7VeMsbK_Kray"
+                                target="ifr-video">Ie</a>
+                        </div>
+
+                        <iframe name="ifr-video" width="560" height="315"
+                            src="https://www.youtube.com/embed/Hyhkkk97HwE?si=sQGR2pDHNI3h8SW5"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+
+                </section>
+
+                <section id="harta">
+                    <h2>Harta Mestesuguri</h2>
+                    <p>Vizualizați harta noastra:</p>
+                    <embed src="/resurse/pdf/Mestesuguri.pdf" type="application/pdf" width="600" height="400">
+                    <p><a href="/resurse/pdf/Mestesuguri.pdf" download="/resurse/pdf/Mestesuguri.pdf">Descarcă Harta
+                            PDF</a></p>
+                </section>
+
+                <section id="linkuri">
+                    <h2>Linkuri utile</h2>
+                    <!--link extern, etapa 1, task 11, a-->
+                    <a href="https://iarmaroc.com" target="_blank">Shoutout prietenilor nostrii de la IARMAROC.com</a>
+                    <br>
+                </section>
+            </div>
+
+        </main>
+
+        <%- include("../fragmente/footer.ejs") %> <!--include fragmentul footer.ejs -->
 </body>
 
 </html>

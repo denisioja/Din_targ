@@ -1,0 +1,25 @@
+<div id="galerie-container">
+    <h2>Galerie produse</h2>
+    
+    <div class="grid-galerie">
+        <% if(locals.imagini && locals.imagini.length > 0) { 
+            for(let imag of locals.imagini) { %>
+                <div class="grid-item">
+                    <figure>
+                        <picture>
+                            <source media="(min-width: 600px)" srcset="<%- imag.fisier_mediu %>">
+                            <img src="<%- imag.fisier %>" alt="<%- imag.titlu %>" title="<%- imag.descriere %>">
+                        </picture>
+                        <figcaption>
+                            <h3><%- imag.titlu %></h3>
+                            <p class="descriere"><%- imag.descriere %></p>
+                            <p class="timp">Disponibil: <%- imag.timp %></p>
+                        </figcaption>
+                    </figure>
+                </div>
+            <% } 
+        } else { %>
+            <p class="eroare">Nu există imagini disponibile.</p>
+        <% } %>
+    </div>
+</div> 

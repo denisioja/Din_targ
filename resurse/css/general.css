@@ -12,37 +12,58 @@ html {
 
 /* Main container styling - affects the entire page layout */
 body {
-    --spatiere-pagina: 60px;  /* Custom spacing variable used throughout the page */
+    --spatiere-pagina: 60px;
+    /* Custom spacing variable used throughout the page */
     /* variabila */
-    --culoare-background: rgb(228, 239, 221);  /* Light green background color */
-    --culoare-deschisa:  #D4E0C5;  /* Light color variable */
-    --culoare1: #CAEBC7;  /* Color variable 1 */
-    --culoare2: #C7EBDD;  /* Color variable 2 */
-    --culoare3: #C7EAD1;   /* Color variable 3 */
-    --culoare4: #D9EBC7;  /* Color variable 4 */
-    --culoare5: #C7EBE9;  /* Color variable 5 */
-    --culoare-fundal-deschis: #fdfbf7; /* Un alb crem foarte deschis */
-    --padding-zona: 15px; /* Modificat de la 20px la 15px pentru ecrane mari */
+    --culoare-background: rgb(228, 239, 221);
+    /* Light green background color */
+    --culoare-deschisa: #D4E0C5;
+    /* Light color variable */
+    --culoare1: #CAEBC7;
+    /* Color variable 1 */
+    --culoare2: #C7EBDD;
+    /* Color variable 2 */
+    --culoare3: #C7EAD1;
+    /* Color variable 3 */
+    --culoare4: #D9EBC7;
+    /* Color variable 4 */
+    --culoare5: #C7EBE9;
+    /* Color variable 5 */
+    --culoare-fundal-deschis: #fdfbf7;
+    /* Un alb crem foarte deschis */
+    --padding-zona: 15px;
+    /* Modificat de la 20px la 15px pentru ecrane mari */
+    --culoare-link-vizitat: #7B63AB;
+    /* Culoare pentru linkurile vizitate */
+    --culoare-simbol-extern: #3A7D8C;
+    /* Culoare pentru simbolul linkurilor externe */
+    --culoare-simbol-extern-hover: #D95E16;
+    /* Culoare pentru simbolul linkurilor externe la hover */
+    --culoare-pata-hover: rgba(201, 235, 198, 0.7);
+    /* Culoarea spotului de hover, bazat pe culoare1 */
 
-    font-family: "Goudy Bookletter 1911", serif;  /* Main font for the entire page */
+    font-family: "Goudy Bookletter 1911", serif;
+    /* Main font for the entire page */
     font-weight: 400;
     font-style: normal;
 }
 
 /* Main heading styling - affects all h1 elements */
-h1 { /* font titlu */
+h1 {
+    /* font titlu */
     font-family: "Goudy Bookletter 1911", serif;
     /* font-weight: 400; */
     font-style: normal;
     color: var(--culoare1);
     font-weight: bold;
-    font-size: 2rem;  
+    font-size: 2rem;
 
 }
 
 /* Secondary heading styling - affects all h2 elements */
 h2 {
-    font-size: 1.6rem;  /* Relative to root font size */
+    font-size: 1.6rem;
+    /* Relative to root font size */
     /* 1.6 * cat e in html, rem = root em */
     color: var(--culoare4);
 }
@@ -59,33 +80,159 @@ h4 {
     color: var(--culoare5);
 }
 
+/* Base link styling - applies to all links on the site
+ * Sets the default color, removes underlines, and prepares transitions */
+a {
+    color: blue;
+    /* Default link color */
+    text-decoration: none;
+    /* Removes underline from links */
+    transition: color 0.3s ease;
+    /* Smooth color transition on hover */
+    position: relative;
+    /* Required for absolute positioning of pseudo-elements */
+}
+
+/* Hover effect styling - applies to all links except iframe tabs
+ * Creates the growing radial background effect when hovering over links */
+a:not(.taburi-iframe a):not(nav a) {
+    /* Transitions for smooth animation of color and background size */
+    transition: color 0.3s ease, background-size 0.5s ease;
+
+    /* Creates a radial gradient that will act as the background spot
+     * The gradient is from our highlight color at 0% and 40% to transparent at 80% and 100% */
+    background-image: radial-gradient(var(--culoare-pata-hover) 0%, var(--culoare-pata-hover) 40%, transparent 80%, transparent 100%);
+
+    /* Centers the background image on the link */
+    background-position: center;
+
+    /* Prevents the background from repeating */
+    background-repeat: no-repeat;
+
+    /* Sets the initial size to 0 (invisible) - will grow on hover */
+    background-size: 0% 0%;
+
+    /* Small padding around links to make the hover effect more visible */
+    padding: 2px 4px;
+}
+
+/* Visited link styling - changes the color of links that have been visited
+ * Uses a CSS variable for consistent theming */
+a:visited {
+    color: var(--culoare-link-vizitat);
+    /* Custom color from our variables for visited links */
+}
+
+/* External link styling - for links that start with "http"
+ * Excludes the iframe tabs to keep them clean */
+a[href^="http"]:not(.taburi-iframe a):not(nav a) {
+    padding-left: 1.5em;
+    /* Left padding to make room for the symbol */
+}
+
+/* External link symbol - adds the ⮳ character before external links
+ * Uses the ::before pseudo-element to avoid modifying HTML */
+a[href^="http"]:not(.taburi-iframe a):not(nav a)::before {
+    content: "⮳";
+    /* The symbol to display */
+    position: absolute;
+    /* Absolute positioning relative to the link */
+    left: 0;
+    /* Position at the left edge of the link's padding box */
+    font-size: 150%;
+    /* 50% larger than the link text for emphasis */
+    color: var(--culoare-simbol-extern);
+    /* Color from our variables */
+    transition: color 0.3s ease;
+    /* Smooth color transition on hover */
+}
+
+/* External link symbol hover state - changes color when hovering 
+ * Creates an interactive effect to highlight external links */
+a[href^="http"]:not(.taburi-iframe a):not(nav a):hover::before {
+    color: var(--culoare-simbol-extern-hover);
+    /* Changes to a different color on hover */
+}
+
+/* Link hover effect - expands the background on hover
+ * This creates the growing spot effect from the center */
+a:not(.taburi-iframe a):not(nav a):hover {
+    background-size: 100% 100%;
+    /* Expands the background to fill the link */
+}
+
+/* Video Section Styling */
+#video-intro h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#container-video {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    /* Add some padding */
+}
+
+#container-video video {
+    width: 80%;
+    /* Percentage width */
+    max-width: 800px;
+    /* Max width */
+    min-width: 300px;
+    /* Min width */
+    height: auto;
+    /* Maintain aspect ratio */
+    border: 2px solid var(--culoare5);
+    border-radius: 5px;
+}
+
+/* Styling for VTT cues */
+#container-video video::cue {
+    /* Gradient background - choose two dark colors */
+    background: linear-gradient(to right, var(--culoare4), rgb(49, 47, 47));
+    color: transparent;
+    /* Make text transparent */
+    -webkit-background-clip: text;
+    /* Clip background to text (Chrome/Safari) */
+    background-clip: text;
+    /* Clip background to text (Standard) */
+    font-size: 1.1em;
+    /* Slightly larger font */
+}
+
 /* Grid layout container - affects the main content area layout */
 #grid-pagina {
     display: grid;
     grid-template-areas: "welcome welcome welcome welcome"
-                        "orar orar promotii promotii"
-                        "calendar statistici promotii promotii"
-                        "utilizatori statistici promotii promotii"
-                        "utilizatori anunturi anunturi site-server"
-                        "fig1 fig2 fig3 produse"
-                        "harta harta confectionare confectionare"
-                        "intrebari intrebari linkuri linkuri";
-    gap: 15px; /* Spațiere pentru ecrane mari - modificat de la 20px la 15px */
+        "orar orar promotii promotii"
+        "calendar statistici promotii promotii"
+        "utilizatori statistici promotii promotii"
+        "utilizatori anunturi anunturi site-server"
+        "fig1 fig2 fig3 produse"
+        "galerie galerie galerie galerie"
+        "harta harta confectionare confectionare"
+        "intrebari intrebari linkuri linkuri";
+    gap: 15px;
+    /* Spațiere pentru ecrane mari - modificat de la 20px la 15px */
 }
 
 /* Common styling for all direct children of grid container */
 #grid-pagina>* {
     /* > * inseamna toate elementele child din grid */
-    outline: 1px solid navy;  /* Adds border to all grid items */   
+    outline: 1px solid navy;
+    /* Adds border to all grid items */
     padding: 7px;
     /* margine */
 }
 
 /* Removes default margin from figures in grid */
-#grid-pagina > figure {
+#grid-pagina>figure {
     margin: 0;
-    padding: 0; /* Eliminăm padding-ul dublu */
-    display: flex; /* flexbox care se foloseste pentru a centra elementele */
+    padding: 0;
+    /* Eliminăm padding-ul dublu */
+    display: flex;
+    /* flexbox care se foloseste pentru a centra elementele */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -94,14 +241,15 @@ h4 {
 }
 
 /* Controls image size within grid */
-#grid-pagina > figure img {
+#grid-pagina>figure img {
     width: 80%;
     height: 80%;
-    object-fit: contain; /* Păstrează proporțiile și se încadrează complet în container */
+    object-fit: contain;
+    /* Păstrează proporțiile și se încadrează complet în container */
     display: block;
 }
 
-#grid-pagina > figure figcaption {
+#grid-pagina>figure figcaption {
     width: 80%;
     padding: 5px;
     margin-top: 10px;
@@ -115,7 +263,8 @@ main {
 }
 
 /* Header and footer padding */
-header, footer {
+header,
+footer {
     padding: var(--padding-zona) var(--spatiere-pagina);
 }
 
@@ -184,6 +333,9 @@ header, footer {
     grid-area: confectionare;
 }
 
+#galerie-statica {
+    grid-area: galerie;
+}
 
 /* Caption styling for figures */
 figcaption {
@@ -193,16 +345,20 @@ figcaption {
 /* Table container for horizontal scroll on small screens */
 .table-container {
     width: 100%;
-    overflow-x: auto; /* daca e mai mic de 800px, se face scroll */
+    overflow-x: auto;
+    /* daca e mai mic de 800px, se face scroll */
     margin: 20px 0;
-    max-width: 100%; /* Ensure it doesn't exceed parent width */
-    position: relative; /* Create new containing block */
+    max-width: 100%;
+    /* Ensure it doesn't exceed parent width */
+    position: relative;
+    /* Create new containing block */
 }
 
 /* Table styling */
 table {
     width: 100%;
-    border-collapse: collapse; /* marginea dintre celule se uneste */
+    border-collapse: collapse;
+    /* marginea dintre celule se uneste */
     margin-bottom: 20px;
 }
 
@@ -215,7 +371,9 @@ caption {
 }
 
 /* Table cell styling */
-th, td { /* th = header, td = data */
+th,
+td {
+    /* th = header, td = data */
     border: 1px solid black;
     padding: 8px;
     text-align: center;
@@ -248,16 +406,19 @@ tr:hover {
 }
 
 tr:hover td {
-    font-size: 1.2em; /* font-size 20% mai mare */
+    font-size: 1.2em;
+    /* font-size 20% mai mare */
 }
 
 /* Remove background from cells to show row shadow */
-td, th {
+td,
+th {
     background: transparent;
 }
 
 /* ordinea e importanta pentru ca unul il poate suprascrie pe altul */
 @media screen and (max-width: 1200px) {
+
     /*Media querry, ecran mediu*/
     html {
         font-size: 14px;
@@ -265,34 +426,40 @@ td, th {
 
     body {
         --spatiere-pagina: 50px;
-        --padding-zona: 10px; /* Modificat de la 15px la 10px pentru ecrane medii */
+        --padding-zona: 10px;
+        /* Modificat de la 15px la 10px pentru ecrane medii */
     }
 
     main {
         padding-left: var(--spatiere-pagina);
         padding-right: var(--spatiere-pagina);
-        width: calc(100% - 2 * var(--spatiere-pagina)); /* Asigură că conținutul respectă padding-ul */
+        width: calc(100% - 2 * var(--spatiere-pagina));
+        /* Asigură că conținutul respectă padding-ul */
     }
 
     #grid-pagina {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(10, auto);
+        grid-template-rows: repeat(11, auto);
         grid-template-areas: "welcome welcome"
-                            "orar promotii"
-                            "calendar promotii"
-                            "statistici promotii"
-                            "utilizatori anunturi"
-                            "site-server produse"
-                            "fig1 fig2"
-                            "fig3 harta"
-                            "confectionare confectionare"
-                            "intrebari linkuri";
+            "orar promotii"
+            "calendar promotii"
+            "statistici promotii"
+            "utilizatori anunturi"
+            "site-server produse"
+            "fig1 fig2"
+            "fig3 fig3"
+            "galerie galerie"
+            "harta harta"
+            "confectionare confectionare"
+            "intrebari linkuri";
         gap: 10px;
-        width: 100%; /* Asigură că grid-ul ocupă toată lățimea disponibilă */
+        width: 100%;
+        /* Asigură că grid-ul ocupă toată lățimea disponibilă */
     }
 
-    #grid-pagina > figure {
-        height: 250px; /* Înălțime mai mică pentru ecrane medii */
+    #grid-pagina>figure {
+        height: 250px;
+        /* Înălțime mai mică pentru ecrane medii */
     }
 }
 
@@ -307,7 +474,8 @@ td, th {
     display: block;
     border-radius: 50%;
     background: rgb(220, 220, 220);
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* shadow-ul din interior */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    /* shadow-ul din interior */
     border: 5px solid;
     border-color: var(--culoare5) var(--culoare4) var(--culoare5) var(--culoare4);
     transition: transform 1s linear, opacity 1s linear, filter 0.5s ease;
@@ -326,21 +494,28 @@ td, th {
 
 .arrow {
     position: absolute;
-    top: 35%;
+    top: 30%;
+    /* Center vertically */
     left: 50%;
-    transform: translate(-50%, -50%); /* Centrare */
+    transform: translate(-50%, -50%);
+    /* Center based on top/left */
     font-size: 4em;
+    /* Make the arrow smaller */
     filter: blur(1px);
     text-shadow: 0 0 2px rgba(70, 65, 65, 0.759);
-    transition: filter 0.5s ease, transform 1s linear; /*+transform pentru counter-rotate */
+    transition: filter 0.5s ease, transform 1s linear;
+    /*+transform pentru counter-rotate */
     height: 0.6em;
     overflow: hidden;
     color: var(--culoare1);
+    line-height: 1;
+    /* Helps center text vertically */
 }
 
 #link-top:hover {
     opacity: 1;
-    transform: rotateZ(90deg); /* Butonul se rotește */
+    transform: rotateZ(90deg);
+    /* Butonul se rotește */
 }
 
 #link-top:hover .arrow-container {
@@ -357,15 +532,17 @@ td, th {
 .container-iframe {
     width: 100%;
     min-width: 200px;
-    max-width: 100%; /* Modificat de la 600px pentru a ocupa tot spațiul disponibil */
+    max-width: 100%;
+    /* Modificat de la 600px pentru a ocupa tot spațiul disponibil */
     display: flex;
     flex-direction: row;
 }
 
 /* Iframe sizing within container */
-.container-iframe > iframe {
+.container-iframe>iframe {
     width: 100%;
-    height: 50vh; /* Înălțime relativă la viewport, la fel ca la PDF */
+    height: 50vh;
+    /* Înălțime relativă la viewport, la fel ca la PDF */
     min-height: 300px;
     max-height: 600px;
     border: 2px solid var(--culoare5);
@@ -376,38 +553,47 @@ td, th {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    min-width: 100px; /* Asigură că butoanele își mențin lățimea minimă */
-    flex-shrink: 0; /* Previne micșorarea coloanei de butoane */
+    min-width: 100px;
+    /* Asigură că butoanele își mențin lățimea minimă */
+    flex-shrink: 0;
+    /* Previne micșorarea coloanei de butoane */
 }
 
 /* Tab link styling */
-.taburi-iframe > a{ /* a = anchor */
-    width: 100px;   
+.taburi-iframe>a {
+    /* a = anchor */
+    width: 100px;
     height: 50px;
     display: block;
     border: 2px solid var(--culoare5);
     border-left: 5px solid var(--culoare5);
     text-align: center;
-    line-height: 50px; /* Makes line height match container height for vertical centering */
+    line-height: 50px;
+    /* Makes line height match container height for vertical centering */
     font-weight: bold;
     background-color: var(--culoare3);
     transition: background-color 1s, color 1s;
-    text-decoration: none; /* sa nu apara underline */
+    text-decoration: none;
+    /* sa nu apara underline */
     color: black;
     margin-bottom: 2px;
     border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;  
+    border-bottom-left-radius: 10px;
 }
 
 /* Hover effect for tab links */
-.taburi-iframe > a:hover { /* doar pentru hover */
-    background-color: var(--culoare5); /* Culoarea pe hover */
-    color: white; 
+.taburi-iframe>a:hover {
+    /* doar pentru hover */
+    background-color: var(--culoare5);
+    /* Culoarea pe hover */
+    color: white;
 }
 
 /* Removes bottom margin from last tab */
-.taburi-iframe > a:last-child { /* doar pentru ultimul element */
-    margin-bottom: 0; /* Elimină marginea doar la ultimul element */
+.taburi-iframe>a:last-child {
+    /* doar pentru ultimul element */
+    margin-bottom: 0;
+    /* Elimină marginea doar la ultimul element */
 }
 
 /* Adăugăm media query pentru ecrane mai mici */
@@ -417,8 +603,9 @@ td, th {
     }
 
     /* Adăugăm spațiere între elementele grid-ului când sunt afișate ca blocuri */
-    #grid-pagina > * {
-        margin-bottom: 5px; /* Spațiere pentru ecran mic - modificat de la 10px la 5px */
+    #grid-pagina>* {
+        margin-bottom: 5px;
+        /* Spațiere pentru ecran mic - modificat de la 10px la 5px */
     }
 
     /* mic, daca e mai mic de 800px, nu ii da prioritate mai mare doar face codul vizibil pentru pagini sub 800px */
@@ -430,38 +617,51 @@ td, th {
     /* Reduced spacing for small screens */
     body {
         --spatiere-pagina: 20px;
-        --padding-zona: 5px; /* Modificat de la 10px la 5px pentru ecrane mici */
+        --padding-zona: 5px;
+        /* Modificat de la 10px la 5px pentru ecrane mici */
     }
 
     .table-container {
-        margin: 10px 0; /* Remove negative margins */
-        padding: 0 var(--padding-zona); /* Add padding instead */
-        width: calc(100% - 2 * var(--padding-zona)); /* Account for padding */
+        margin: 10px 0;
+        /* Remove negative margins */
+        padding: 0 var(--padding-zona);
+        /* Add padding instead */
+        width: calc(100% - 2 * var(--padding-zona));
+        /* Account for padding */
     }
-    
+
     table {
         min-width: 600px;
-        max-width: 100%; /* Ensure table doesn't force container wider */
+        max-width: 100%;
+        /* Ensure table doesn't force container wider */
     }
 
     .container-iframe {
-        flex-direction: column; /* Stivuim elementele pe ecrane mici */
+        flex-direction: column;
+        /* Stivuim elementele pe ecrane mici */
     }
 
     .taburi-iframe {
-        flex-direction: row; /* Butoanele pe orizontală pe ecrane mici */
-        overflow-x: auto; /* Permite scroll horizontal dacă sunt prea multe butoane */
-        gap: 5px; /* Spațiere între butoane */
+        flex-direction: row;
+        /* Butoanele pe orizontală pe ecrane mici */
+        overflow-x: auto;
+        /* Permite scroll horizontal dacă sunt prea multe butoane */
+        gap: 5px;
+        /* Spațiere între butoane */
     }
 
-    .taburi-iframe > a {
-        width: auto; /* Permite butoanelor să se ajusteze la conținut */
-        padding: 0 15px; /* Adaugă padding lateral pentru aspect mai bun */
-        white-space: nowrap; /* Previne ruperea textului pe mai multe linii */
+    .taburi-iframe>a {
+        width: auto;
+        /* Permite butoanelor să se ajusteze la conținut */
+        padding: 0 15px;
+        /* Adaugă padding lateral pentru aspect mai bun */
+        white-space: nowrap;
+        /* Previne ruperea textului pe mai multe linii */
     }
 
-    #grid-pagina > figure {
-        height: 200px; /* Înălțime și mai mică pentru ecrane mici */
+    #grid-pagina>figure {
+        height: 200px;
+        /* Înălțime și mai mică pentru ecrane mici */
     }
 }
 
@@ -489,10 +689,14 @@ mfrac {
 
 /* Stilizare pentru embed PDF */
 #harta embed {
-    width: 100%; /* Va ocupa toată lățimea containerului părinte */
-    height: 50vh; /* Înălțime relativă la înălțimea viewport-ului */
-    min-height: 300px; /* Înălțime minimă pentru lizibilitate */
-    max-height: 600px; /* Înălțime maximă pentru ecrane mari */
+    width: 100%;
+    /* Va ocupa toată lățimea containerului părinte */
+    height: 50vh;
+    /* Înălțime relativă la înălțimea viewport-ului */
+    min-height: 300px;
+    /* Înălțime minimă pentru lizibilitate */
+    max-height: 600px;
+    /* Înălțime maximă pentru ecrane mari */
 }
 
 /* Asigurăm că și link-ul de download se aliniază frumos */
@@ -502,8 +706,11 @@ mfrac {
 }
 
 /* Pentru zonele specifice care ar putea necesita ajustări diferite */
-#fig1, #fig2, #fig3 {
-    min-height: 200px; /* Asigură o înălțime minimă pentru zonele cu imagini */
+#fig1,
+#fig2,
+#fig3 {
+    min-height: 200px;
+    /* Asigură o înălțime minimă pentru zonele cu imagini */
 }
 
 /* Stilizare pentru toate figure din promotii, inclusiv cele cu picture */
@@ -518,7 +725,7 @@ mfrac {
     height: 100%;
 }
 
-#promotii figure img, 
+#promotii figure img,
 #promotii figure picture {
     width: 80%;
     height: 80%;
@@ -526,7 +733,8 @@ mfrac {
 }
 
 #promotii figure picture img {
-    width: 100%; /* Imaginea din picture să ocupe tot spațiul picture-ului */
+    width: 100%;
+    /* Imaginea din picture să ocupe tot spațiul picture-ului */
     height: 100%;
     object-fit: contain;
 }
@@ -558,10 +766,11 @@ footer {
 }
 
 /* Grid pentru conținutul principal din footer */
-footer > section {
+footer>section {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Două coloane egale */
-    grid-template-areas: 
+    grid-template-columns: repeat(2, 1fr);
+    /* Două coloane egale */
+    grid-template-areas:
         "contact iframe"
         "harta iframe"
         "copyright copyright";
@@ -579,12 +788,14 @@ footer > section {
 /* Zonele din grid */
 .contact-links {
     grid-area: contact;
-    max-height: 200px; /* Limitează înălțimea zonei de contact */
+    max-height: 200px;
+    /* Limitează înălțimea zonei de contact */
 }
 
 .location-info {
     grid-area: harta;
-    max-height: 200px; /* Limitează înălțimea zonei cu harta */
+    max-height: 200px;
+    /* Limitează înălțimea zonei cu harta */
 }
 
 #harta-iframe {
@@ -610,10 +821,11 @@ footer > section {
     margin-top: 15px;
 }
 
-footer h2, 
-footer h3, 
+footer h2,
+footer h3,
 footer h4 {
-    color: black; /* Face toate titlurile negre */
+    color: black;
+    /* Face toate titlurile negre */
 }
 
 footer a {
@@ -626,7 +838,7 @@ footer a:hover {
 }
 
 /* Grid items styling - acest selector va gestiona padding-ul pentru toate elementele, inclusiv figurile */
-#grid-pagina > * {
+#grid-pagina>* {
     background-color: var(--culoare-fundal-deschis);
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -636,19 +848,26 @@ footer a:hover {
 }
 
 /* Special sections styling */
-#welcome, #promotii, #anunturi, #calendar, #statistici, #confectionare {
+#welcome,
+#promotii,
+#anunturi,
+#calendar,
+#statistici,
+#confectionare {
     background-color: var(--culoare-fundal-deschis);
 }
 
 /* Pentru zonele cu imagini */
-#fig1, #fig2, #fig3 {
+#fig1,
+#fig2,
+#fig3 {
     background-color: var(--culoare-fundal-deschis);
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 /* Responsive pentru ecrane medii */
 @media screen and (max-width: 1200px) {
-    footer > section {
+    footer>section {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -660,9 +879,9 @@ footer a:hover {
 
 /* Responsive pentru ecrane mici */
 @media screen and (max-width: 800px) {
-    footer > section {
+    footer>section {
         grid-template-columns: 1fr;
-        grid-template-areas: 
+        grid-template-areas:
             "contact"
             "harta"
             "iframe"
@@ -674,3 +893,235 @@ footer a:hover {
         min-height: 300px;
     }
 }
+
+/* Gallery styling */
+#galerie-container {
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.grid-galerie {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+    counter-reset: galerie-counter; /* Initialize the counter */
+    list-style-type: none; /* Remove default list styling if any */
+    padding: 0;
+}
+
+.grid-item {
+    background-color: var(--culoare-fundal-deschis);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    counter-increment: galerie-counter; /* Increment the counter for each item */
+}
+
+/* Style the description paragraph to include the counter */
+.grid-item .descriere::before {
+    content: counter(galerie-counter, lower-alpha) ") "; /* Display counter as a) b) c)... */
+    font-weight: bold;
+    margin-right: 0.3em;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item figure {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-item picture {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.grid-item:hover img {
+    transform: scale(1.05);
+}
+
+.grid-item figcaption {
+    padding: 15px;
+    background-color: var(--culoare-fundal-deschis);
+}
+
+.grid-item h3 {
+    margin-top: 0;
+    color: var(--culoare3);
+    font-size: 1.2rem;
+}
+
+.grid-item .descriere {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.grid-item .timp {
+    font-weight: bold;
+    color: var(--culoare4);
+    margin-top: auto;
+}
+
+/* Responsive gallery */
+@media screen and (max-width: 1200px) {
+    .grid-galerie {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    .grid-item picture {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .grid-galerie {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+    }
+
+    .grid-item picture {
+        height: 180px;
+    }
+
+    .grid-item figcaption {
+        padding: 10px;
+    }
+
+    .grid-item h3 {
+        font-size: 1rem;
+    }
+}
+
+/* Add styling for the dedicated gallery page */
+.descriere-pagina {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.fancy-hr {
+    border: 0; /* Eliminăm stilul implicit al <hr> */
+    height: auto; /* Allow the height to be determined by borders and padding */
+    border-top: 5px double var(--culoare1); /* Prima linie neagră */
+    border-bottom: 5px double var(--culoare1); /* A doua linie neagră */
+    padding: 1px 0; /* Add padding between the borders */
+    margin: 30px auto; /* Spacing above and below the entire HR */
+    width: 100%; /* Make it centered with some space on sides */
+    overflow: visible; /* IMPORTANT: Asigură vizibilitatea umbrelor (liniilor) */
+    background: none; /* Asigură că nu există fundal */
+    border-radius: 10px; /* Makes the ends rounded */
+}
+
+/* Duotone image effect - simplified approach */
+#fig2 {
+    display: flex; /* Use flexbox to center the content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Stack items vertically */
+    padding: 10px !important; /* Add some padding around */
+    width: 100%;
+    height: 100%;
+    background-color: var(--culoare-fundal-deschis);
+    border-radius: 10px;
+    position: relative; /* For figcaption positioning */
+}
+
+.duotone-container {
+    position: relative;
+    width: 236px;
+    height: 300px;
+    background-image: url("/resurse/imagini/hora_mic.jpg");
+    background-size: cover;
+    filter: brightness(200%) grayscale(0);
+    transition: all 2s linear;
+}
+
+.duotone-container:after, .duotone-container:before {
+    content: " ";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: all 2s linear;
+}
+
+.duotone-container:after {
+    background-color: rgb(0, 0, 255); /* Blue */
+    mix-blend-mode: lighten;
+}
+
+.duotone-container:before {
+    background-color: rgb(205, 0, 255); /* Purple */
+    mix-blend-mode: darken;
+}
+
+/* Add hover state for interactive effect */
+.duotone-container:hover:after {
+    background-color: rgb(255, 165, 0); /* Orange */
+}
+
+.duotone-container:hover:before {
+    background-color: rgb(0, 128, 128); /* Teal */
+}
+
+/* Reflection Effect for Headings */
+.reflected-heading {
+    position: relative;
+    right: 1em;
+    display: inline-block; /* Ensures container fits content */
+    margin-bottom: 2em; /* Increased margin to accommodate rotation */
+    padding-right: 2em; /* Increased space for the rotated reflection */
+    margin-left: 1em; /* Add some left margin to prevent clipping */
+}
+
+.reflected-heading .original-text,
+.reflected-heading .reflection {
+    display: inline-block;
+    transition: color 1s ease, transform 1s ease;
+    font-size: inherit; /* Inherit font size from h2 */
+    color: inherit; /* Inherit color from h2 */
+    transform-origin: center center; /* Rotate around the center */
+}
+
+.reflected-heading .original-text {
+    transform: rotate(-45deg); /* Rotate original text */
+}
+
+.reflected-heading .reflection {
+    position: absolute;
+    top: 0em; /* Adjust vertical position due to rotation */
+    right: -0.5em; /* Adjust horizontal position due to rotation */
+    transform: scaleX(-1) rotate(-45deg); /* Reflect horizontally AND rotate */
+    opacity: 1; /* Make reflection fully opaque */
+    pointer-events: none; /* Prevent reflection from interfering */
+}
+
+/* Hover effect: Change color of both */
+.reflected-heading:hover .original-text,
+.reflected-heading:hover .reflection {
+    color: var(--culoare5); /* Change to a different color on hover */
+}
+
+/* Override reflection opacity on hover if needed */
+.reflected-heading:hover .reflection {
+    opacity: 1; /* Keep reflection fully opaque on hover */
+}
+

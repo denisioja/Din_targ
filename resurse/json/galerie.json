@@ -1,41 +1,61 @@
 {
-	"cale_galerie":"resurse/imagini/galerie",
+	"cale_galerie": "resurse/imagini/galerie",
 	"imagini": [
-		{
-			"fisier":"briose-frisca.png",
-			"descriere":"Brioșe",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"] 
-		},
-			{
-			"fisier":"clatite.png",
-			"descriere":"Clătite cu dulceață",
-			"luni":["ianuarie","februarie","iunie"]
-			
-		},
-		{
-			"fisier":"gogosi.png",
-			"descriere":"Gogoși glazurate",
-			"luni":["ianuarie","noiembrie","iunie","martie","aprilie"]
-		},
-		{
-			"fisier":"tort-scortisoara.png",
-			"descriere":"Tort cu scorțisoară",
-			
-			"luni":["noiembrie","aprilie", "decembrie"]
-		},
-		{
-			"fisier":"prajitura-ciocolata.png",
-			"descriere":"Prăjitură cu ciocolată",
-			
-			"luni":["noiembrie","aprilie", "decembrie"]
-		},
-		{
-			"fisier":"tarta-afine.png",
-			"descriere":"Tartă cu afine"
-		},
-		{
-			"fisier":"tort-trandafiri.png",
-			"descriere":"Tort special"
-		}
+	  {
+		"cale_imagine": "bucate.png",
+		"titlu": "Bucate tradiționale",
+		"descriere": "O selecție de bucate tradiționale românești, preparate după rețete autentice.",
+		"timp":"00:00-23:59",
+		"luni":["mai", "martie","februarie","noiembrie","aprilie", "decembrie"] 
+	  },
+	  {
+		"cale_imagine": "caval.png",
+		"titlu": "Caval autentic",
+		"descriere": "Caval tradițional românesc, realizat din lemn de înaltă calitate, cu un sunet bogat și melodios.",
+		"timp":"00:00-23:59",
+		"luni":["mai", "ianuarie","februarie","iunie"]
+	  },
+	  {
+		"cale_imagine": "ceramica.png",
+		"titlu": "Ceramică pictată manual",
+		"descriere": "Obiecte de ceramică unice, pictate manual cu motive folclorice diverse.",
+		"timp":"09:00-12:00",
+		"luni":["mai", "ianuarie","noiembrie","iunie","martie","aprilie"]
+	  },
+	  {
+		"cale_imagine": "linguri.png",
+		"titlu": "Linguri de lemn sculptate",
+		"descriere": "Set de linguri din lemn, sculptate artistic și decorate cu motive tradiționale.",
+		"timp":"12:00-16:00",
+		"luni":["mai", "noiembrie","aprilie", "decembrie"]
+	  },
+	  {
+		"cale_imagine": "masa.png",
+		"titlu": "Carafa de vin cu căni din lut",
+		"descriere": "Set tradițional format dintr-o carafă de vin din lut și mai multe căni asortate.",
+		"timp":"08:00-20:00",
+		"luni":["mai", "noiembrie","aprilie", "decembrie"]
+	  },
+	  {
+		"cale_imagine": "masca.png",
+		"titlu": "Mască populară tradițională",
+		"descriere": "Mască artizanală, reprezentând personaje din folclorul românesc, perfectă pentru colecționari.",
+		"timp":"10:00-18:00",
+		"luni":["mai"]
+	  },
+	  {
+		"cale_imagine": "nai.png",
+		"titlu": "Nai profesional",
+		"descriere": "Nai tradițional cu multiple țevi, acordat profesional pentru muzicieni.",
+		"timp":"09:00-22:00",
+		"luni":["mai", "noiembrie","aprilie", "decembrie"]
+	  },
+	  {
+		"cale_imagine": "port_popular.png",
+		"titlu": "Port popular românesc",
+		"descriere": "Costum popular autentic, brodat manual cu motive specifice zonei.",
+		"timp": "Permanent",
+		"luni":["mai"]
+	  }
 	]
-}
+  }
