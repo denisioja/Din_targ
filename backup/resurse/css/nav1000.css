@@ -21,9 +21,6 @@ ul.meniu > li:first-child > a:before {
 ul.meniu > li:first-child > ul a {
   font-size: 0.9rem;
 }
-ul.meniu > li:first-child > ul a:before {
-  content: none;
-}
 
 ul.meniu > li:first-child > div.imag-icon i.fa-home {
   display: inline-block;

@@ -1,3 +1,4 @@
+<script src="/resurse/js/tema.js"></script> <!--script pentru schimbarea temei -->
 <header> <!--antetul documentului -->
     <h1 style="color : rgb(201, 223, 172)">Din targ</h1> <!--titlul paginii, style ii seteaza culoarea -->
     <nav> <!--navigare-->
@@ -21,14 +22,17 @@
                 </ul>
             </li>
             <li>
-                <a href="#">Produse</a>
+                <a href="#">Produse</a> <!--astea vin din prajituri.sql-->
                 <ul>
                     <li><a href="/produse">Toate</a></li>
-                    <li><a href="/produse?tip=cofetarie">Vestimantare</a></li>
+                    <!-- <li><a href="/produse?tip=cofetarie">Vestimantare</a></li>
                     <li><a href="/produse?tip=gelaterie">Decorative</a></li>
                     <li><a href="/produse?tip=patiserie">Muzicale</a></li>
                     <li><a href="/produse?tip=cofetarie">Suveniruri</a></li>
-                    <li><a href="/produse?tip=cofetarie">Alimente</a></li>
+                    <li><a href="/produse?tip=cofetarie">Alimente</a></li> -->
+                    <% for (let opt of locals.optiuniMeniu) { %>
+                        <li><a href="/produse?tip= <%= opt.unnest %>"><%= opt.unnest %></a></li>
+                    <% } %> 
                 </ul>
             </li>
             <li>
@@ -49,6 +53,7 @@
             <li>
                 <a href="#">Pagina logare</a>
             </li>
+            <li><button id = "schimba_tema">Tema</button></li>
         </ul>
     </nav>
 </header>

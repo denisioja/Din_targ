@@ -26,9 +26,9 @@ ul.meniu > li:first-child > a {
 ul.meniu > li:first-child > ul a {
   font-size: 0.9rem;
   
-  &:before {
-    content: none; // Eliminăm iconul de la submeniuri
-  }
+  // &:before {
+  //   content: none; // Eliminăm iconul de la submeniuri
+  // }
 }
 
 // Asigurăm că iconul Font Awesome este vizibil

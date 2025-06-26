@@ -1,61 +1,166 @@
 {
-	"cale_galerie": "resurse/imagini/galerie",
-	"imagini": [
-	  {
-		"cale_imagine": "bucate.png",
-		"titlu": "Bucate tradiționale",
-		"descriere": "O selecție de bucate tradiționale românești, preparate după rețete autentice.",
-		"timp":"00:00-23:59",
-		"luni":["mai", "martie","februarie","noiembrie","aprilie", "decembrie"] 
-	  },
-	  {
-		"cale_imagine": "caval.png",
-		"titlu": "Caval autentic",
-		"descriere": "Caval tradițional românesc, realizat din lemn de înaltă calitate, cu un sunet bogat și melodios.",
-		"timp":"00:00-23:59",
-		"luni":["mai", "ianuarie","februarie","iunie"]
-	  },
-	  {
-		"cale_imagine": "ceramica.png",
-		"titlu": "Ceramică pictată manual",
-		"descriere": "Obiecte de ceramică unice, pictate manual cu motive folclorice diverse.",
-		"timp":"09:00-12:00",
-		"luni":["mai", "ianuarie","noiembrie","iunie","martie","aprilie"]
-	  },
-	  {
-		"cale_imagine": "linguri.png",
-		"titlu": "Linguri de lemn sculptate",
-		"descriere": "Set de linguri din lemn, sculptate artistic și decorate cu motive tradiționale.",
-		"timp":"12:00-16:00",
-		"luni":["mai", "noiembrie","aprilie", "decembrie"]
-	  },
-	  {
-		"cale_imagine": "masa.png",
-		"titlu": "Carafa de vin cu căni din lut",
-		"descriere": "Set tradițional format dintr-o carafă de vin din lut și mai multe căni asortate.",
-		"timp":"08:00-20:00",
-		"luni":["mai", "noiembrie","aprilie", "decembrie"]
-	  },
-	  {
-		"cale_imagine": "masca.png",
-		"titlu": "Mască populară tradițională",
-		"descriere": "Mască artizanală, reprezentând personaje din folclorul românesc, perfectă pentru colecționari.",
-		"timp":"10:00-18:00",
-		"luni":["mai"]
-	  },
-	  {
-		"cale_imagine": "nai.png",
-		"titlu": "Nai profesional",
-		"descriere": "Nai tradițional cu multiple țevi, acordat profesional pentru muzicieni.",
-		"timp":"09:00-22:00",
-		"luni":["mai", "noiembrie","aprilie", "decembrie"]
-	  },
-	  {
-		"cale_imagine": "port_popular.png",
-		"titlu": "Port popular românesc",
-		"descriere": "Costum popular autentic, brodat manual cu motive specifice zonei.",
-		"timp": "Permanent",
-		"luni":["mai"]
-	  }
-	]
-  }
+  "cale_galerie": "resurse/imagini/galerie",
+  "imagini": [
+    {
+      "cale_imagine": "bucate.png",
+      "titlu": "Bucate tradiționale",
+      "descriere": "O selecție de bucate tradiționale românești, preparate după rețete autentice.",
+      "timp": "00:00-23:59",
+      "luni": ["mai", "martie", "februarie", "noiembrie", "aprilie", "decembrie"],
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "caval.png",
+      "titlu": "Caval autentic",
+      "descriere": "Caval tradițional românesc, realizat din lemn de înaltă calitate, cu un sunet bogat și melodios.",
+      "timp": "00:00-23:59",
+      "luni": ["mai", "ianuarie", "februarie", "iunie"],
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "ceramica.png",
+      "titlu": "Ceramică pictată manual",
+      "descriere": "Obiecte de ceramică unice, pictate manual cu motive folclorice diverse.",
+      "timp": "00:00-23:59",
+      "luni": ["mai", "ianuarie", "noiembrie", "iunie", "martie", "aprilie"],
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "linguri.png",
+      "titlu": "Linguri de lemn sculptate",
+      "descriere": "Set de linguri din lemn, sculptate artistic și decorate cu motive tradiționale.",
+      "timp": "00:00-23:59",
+      "luni": ["mai", "noiembrie", "aprilie", "decembrie"],
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "masa.png",
+      "titlu": "Carafa de vin cu căni din lut",
+      "descriere": "Set tradițional format dintr-o carafă de vin din lut și mai multe căni asortate.",
+      "timp": "00:00-23:59",
+      "luni": ["mai", "noiembrie", "aprilie", "decembrie"],
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "masca.png",
+      "titlu": "Mască populară tradițională",
+      "descriere": "Mască artizanală, reprezentând personaje din folclorul românesc, perfectă pentru colecționari.",
+      "timp": "00:00-23:59",
+      "luni": ["mai"],
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "nai.png",
+      "titlu": "Nai profesional",
+      "descriere": "Nai tradițional cu multiple țevi, acordat profesional pentru muzicieni.",
+      "timp": "00:00-23:59",
+      "luni": ["mai", "noiembrie", "aprilie", "decembrie"],
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "port_popular.png",
+      "titlu": "Port popular românesc",
+      "descriere": "Costum popular autentic, brodat manual cu motive specifice zonei.",
+      "timp": "00:00-23:59",
+      "luni": ["mai"],
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "cos.png",
+      "titlu": "Coș tradițional",
+      "descriere": "Un coș tradițional împletit manual din materiale naturale.",
+      "timp": "00:00-23:59",
+      "luni": ["iunie", "iulie", "august"],
+      "licenta": "Creative Commons Zero, Public Domain Dedication",
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "martisor.png",
+      "titlu": "Mărțișor tradițional",
+      "descriere": "Un mărțișor simbolic, purtător de noroc și vestitor al primăverii.",
+      "timp": "00:00-23:59",
+      "luni": ["martie"],
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "mileu.png",
+      "titlu": "Mileu croșetat manual",
+      "descriere": "Un mileu delicat, croșetat manual cu motive florale.",
+      "timp": "00:00-23:59",
+      "luni": ["aprilie", "mai", "iunie"],
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "opinci.png",
+      "titlu": "Opincă tradițională",
+      "descriere": "O pereche de opinci autentice, încălțăminte tradițională românească.",
+      "timp": "00:00-23:59",
+      "luni": ["septembrie", "octombrie", "noiembrie"],
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "oua.png",
+      "titlu": "Ouă decorate manual",
+      "descriere": "Ouă de Paște decorate manual cu diverse tehnici și motive tradiționale.",
+      "timp": "00:00-23:59",
+      "luni": ["aprilie"],
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "razboi_tesut.png",
+      "titlu": "Război de țesut tradițional",
+      "descriere": "Un război de țesut manual, folosit pentru crearea de textile tradiționale.",
+      "timp": "00:00-23:59",
+      "luni": ["ianuarie", "februarie", "martie"],
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "tambal.png",
+      "titlu": "Tambal instrument muzical",
+      "descriere": "Un tambal, instrument muzical tradițional cu un sunet distinctiv.",
+      "timp": "00:00-23:59",
+      "luni": ["iulie", "august", "septembrie"],
+      "galerie-animata": true
+    },
+    {
+      "cale_imagine": "brau.png",
+      "titlu": "Brâu tradițional",
+      "descriere": "Un brâu țesut manual, parte a costumului popular românesc.",
+      "timp": "00:00-23:59",
+      "luni": ["mai", "iunie", "iulie"],
+      "galerie-animata": false
+    },
+    {
+      "cale_imagine": "cojoc.png",
+      "titlu": "Cojoc tradițional",
+      "descriere": "Un cojoc călduros, din piele de oaie, decorat cu motive tradiționale.",
+      "timp": "00:00-23:59",
+      "luni": ["decembrie", "ianuarie", "februarie"],
+      "galerie-animata": false
+    },
+    {
+      "cale_imagine": "cozonac.png",
+      "titlu": "Cozonac tradițional",
+      "descriere": "Un cozonac pufos, copt după o rețetă tradițională românească.",
+      "timp": "00:00-23:59",
+      "luni": ["decembrie", "aprilie"],
+      "galerie-animata": false
+    },
+    {
+      "cale_imagine": "fata_masa.png",
+      "titlu": "Față de masă tradițională",
+      "descriere": "O față de masă brodată manual cu motive tradiționale românești.",
+      "timp": "00:00-23:59",
+      "luni": ["toate"],
+      "galerie-animata": false
+    },
+    {
+      "cale_imagine": "fuior.png",
+      "titlu": "Fuior tradițional",
+      "descriere": "Un fuior tradițional, folosit pentru torsul lânii.",
+      "timp": "00:00-23:59",
+      "luni": ["ianuarie", "februarie", "martie"],
+      "galerie-animata": false
+    }
+  ]
+}

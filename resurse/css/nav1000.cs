@@ -25,3 +25,5 @@ ul.meniu > li:first-child > ul a {
 ul.meniu > li:first-child > div.imag-icon i.fa-home {
   display: inline-block;
 }
+
+/*# sourceMappingURL=nav1000.cs.map */

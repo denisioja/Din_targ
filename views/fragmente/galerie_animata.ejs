@@ -1,0 +1,26 @@
+<% if (locals.imagini_anim && locals.imagini_anim.length > 0 && locals.num_imagini_anim && locals.num_imagini_anim > 0) { %>
+    <% 
+        const numImaginiHtml = locals.num_imagini_anim; // Number of images to render in HTML
+        const imagini = locals.imagini_anim; // Array of image objects
+    %>
+    <div id="galerie-animata">  <%# Matches CSS selector #galerie-animata %>
+        <div class="container-galerie-animata"> <%# Matches CSS selector .container-galerie-animata %>
+            <% for(let i = 0; i < numImaginiHtml; i++) { %>
+                <% if (imagini[i] && imagini[i].fisier) { // Check if image data and 'fisier' property exist %>
+                    <figure> <%# Matches CSS selector .container-galerie-animata figure and #galerie-animata figure:nth-of-type %>
+                        <img src="<%= imagini[i].fisier %>" 
+                             alt="<%= imagini[i].titlu || 'Imagine galerie animata' %>" 
+                             title="<%= imagini[i].descriere || imagini[i].titlu || 'Produs Artizanal' %>">
+                        <% if (imagini[i].titlu) { %>
+                            <figcaption><%= imagini[i].titlu %></figcaption> <%# Matches CSS selector .container-galerie-animata figcaption %>
+                        <% } %>
+                    </figure>
+                <% } else { %>
+                    <% console.warn(`Animated gallery EJS: Missing data or 'fisier' property for image at index ${i}. Image object:`, imagini[i]); %>
+                <% } %>
+            <% } %>
+        </div>
+    </div>
+<% } else { %>
+    <p class="eroare-galerie-animata">Galerie animată nu este disponibilă sau nu sunt suficiente imagini.</p>
+<% } %>

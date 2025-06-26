@@ -3,7 +3,8 @@
     
     <div class="grid-galerie">
         <% if(locals.imagini && locals.imagini.length > 0) { 
-            for(let imag of locals.imagini) { %>
+            const imaginiAfisate = locals.imagini.slice(0, 10); // Trunchiere la maxim 10 imagini            
+            for(let imag of imaginiAfisate) { %>
                 <div class="grid-item">
                     <figure>
                         <picture>

@@ -45,7 +45,7 @@
                     <p><b>Ip: </b> <%- locals.ip %> </p>
                 </section>
 
-                <section id="video-intro" style="grid-column: span 4;">
+                <section id="video-intro">
                     <!-- Span across all columns in the main grid -->
                     <h2>Descoperă Tradiția</h2>
                     <div id="container-video">
@@ -374,7 +374,12 @@
 
                 <section id="galerie-statica"> <!--galerie statica - de modificat -->
                     <h2>Galerie</h2>
-                    <%- include("../fragmente/galerie.ejs") %>
+                    <%- include("../fragmente/galerie_frag.ejs") %>
+                </section>
+
+                <section id="galerie-animata">
+                    <h2>Galerie animata</h2>
+                    <%- include("../fragmente/galerie_animata.ejs") %>
                 </section>
 
                 <section id="confectionare">
